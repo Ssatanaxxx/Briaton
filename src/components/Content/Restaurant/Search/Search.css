@@ -1,0 +1,24 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: wheat;
+    border-radius: 8px;
+    margin: 50px;
+    margin-bottom: 25px;
+
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: #f4c56e;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+}
+
+
