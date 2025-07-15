@@ -2,10 +2,10 @@ import { lazy, Suspense } from 'react';
 import IconLogo from '../../assets/sprite/icon-logo.svg?react';
 
 const LazyOverlay = lazy(() => import("../Overlay/Overlay"))
-const LazyBurgerMenuButton = lazy(() => import("../BurgerMenu/BurgerMenuButton"))
-const LazyLocation = lazy(() => import("../Location/Location"))
-const LazyBusket = lazy(() => import("../Busket/Busket"))
-const LazyAccount = lazy(() => import("../AuthForm/Account"))
+const LazyBurgerMenuButton = lazy(() => import("../../ui/BurgerMenu/BurgerMenuButton"))
+const LazyLocation = lazy(() => import("../../ui/Location/Location"))
+const LazyBusket = lazy(() => import("../../ui/Busket/Busket"))
+const LazyAccount = lazy(() => import("../../auth/AuthForm/Account"))
 
 
 const Header = () => {

@@ -1,3 +1,92 @@
 .mainPage {
-	color: aqua;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+
+.mainPage h2 {
+  font-size: 2.5rem;
+  color: #d4af37; /* Золотой акцент */
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.mainPage h3 {
+  font-size: 1.8rem;
+  color: #222;
+  margin: 2rem 0 1rem;
+  font-weight: 400;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.mainPage h4 {
+  font-size: 1.4rem;
+  color: #444;
+  margin: 1.5rem 0 1rem;
+  font-weight: 500;
+}
+
+.mainPage p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+  color: #555;
+}
+
+.mainPage ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 1.5rem 0;
+}
+
+.mainPage li {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.mainPage li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 12px;
+  height: 12px;
+  background-color: #d4af37;
+  transform: rotate(45deg);
+}
+
+.mainPage span {
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 3rem;
+  color: #d4af37;
+  font-style: italic;
+}
+
+/* Анимации для плавного появления */
+.mainPage h2, .mainPage h3, .mainPage p, .mainPage ul {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Задержки для анимации */
+.mainPage h2 { animation-delay: 0.1s; }
+.mainPage h3 { animation-delay: 0.3s; }
+.mainPage p { animation-delay: 0.5s; }
+.mainPage ul { animation-delay: 0.7s; }

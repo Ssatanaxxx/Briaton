@@ -1,5 +1,5 @@
 export { MainPage } from "./MainPage";
-export { UsersPage } from "./UsersPage";
-export { UserInfoPage } from "./UserInfoPage";
-export { PlaylistsPage } from "./PlaylistsPage/PlaylistsPage";
-export { PlaylistInfoPage } from "./PlaylistInfoPage/PlaylistInfoPage";
+export { LampsPage } from "./LampsPage";
+export { LampsInfoPage } from "./LampsInfoPage";
+export { CatalogInfoPage } from "./CatalogInfoPage/CatalogInfoPage";
+export { CatalogPage } from "./CatalogPage/CatalogPage";
