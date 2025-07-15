@@ -3,7 +3,6 @@ import "./MainPage.css";
 export function MainPage() {
 	return (
 		<div className="mainPage">
-			<h2>О нас</h2>
 			<h3>Добро пожаловать в «Briaton» — мир света и уюта!</h3>
 
 			<p>

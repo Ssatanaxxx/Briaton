@@ -1,0 +1,1 @@
+export { LampsInfoPage } from "./LampsInfoPage";
