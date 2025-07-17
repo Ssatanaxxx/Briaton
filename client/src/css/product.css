@@ -65,8 +65,15 @@
 .product-card__prices {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
   margin-bottom: 12px;
+}
+
+.product-card-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .product-card__price {

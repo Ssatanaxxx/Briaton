@@ -32,3 +32,50 @@
 .playlistInfoPage a:hover {
     text-decoration: underline;
 }
+
+/* Сетка товаров */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.product-card__item {
+    display: flex;
+    height: 100%;
+}
+
+/* Карточка товара */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Визуальная часть */
+.product-card__visual {
+    position: relative;
+    padding-top: 100%;
+    /* Квадратное соотношение */
+    background: #f8f8f8;
+}
+
+/* Информационная часть */
+.product-card__info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}

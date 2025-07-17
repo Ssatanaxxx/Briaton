@@ -1,21 +1,19 @@
-import { Products } from "../../../api/Products"
+import { Product } from "../../../api/Products"
 import ProductCard from "./ProductCard"
 
 
 interface ProductCardListProps {
-    card: Products[]
+    card: Product[]
 }
 
 
 const ProductCardList = ({ card }: ProductCardListProps) => {
     return (
-        <ul className="product-card__info">
+        <ul className="products-grid product-card-list">
             {card.map((item) => (
-                <li className="product-card__visual" key={item.id}>
-                    <ProductCard
-                        items={item} />
+                <li key={item.id} className="product-card__item">
+                    <ProductCard product={item}  />
                 </li>
-
             ))}
         </ul>
     )
