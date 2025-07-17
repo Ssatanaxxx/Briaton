@@ -1,6 +1,8 @@
 import "./PromoProductsPage.css";
-// import IconArrowPrev from "../../assets/sprite/icon-arrow-prev.svg?react"
-// import IconArrowNext from "../../assets/sprite/icon-arrow-next.svg"
+import IconArrowPrev from "../../assets/sprite/icon-arrow-prev.svg?react"
+import IconArrowNext from "../../assets/sprite/icon-arrow-next.svg?react"
+import IconBusket from "../../assets/sprite/icon-basket.svg?react"
+import IconI from "../../assets/sprite/icon-i.svg?react"
 export function PromoProductsPage() {
 
 	return (
@@ -9,10 +11,10 @@ export function PromoProductsPage() {
 				<h2 className="catalog__title">Светильники</h2>
 				<div className="day-products__navigation">
 					<button className="day-products__navigation-btn day-products__navigation-btn--prev" disabled type="button">
-						{/* <IconArrowPrev width={41} height={9} aria-hidden="true" /> */}
+						<IconArrowPrev width={41} height={9} aria-hidden="true" />
 					</button>
 					<button className="day-products__navigation-btn day-products__navigation-btn--next" type="button">
-						{/* <IconArrowNext width={41} height={9} aria-hidden="true" /> */}
+						<IconArrowNext width={41} height={9} aria-hidden="true" />
 					</button>
 				</div>
 			</div>
@@ -22,15 +24,13 @@ export function PromoProductsPage() {
 					<li className="day-products__item">
 						<div className="product-card product-card--small">
 							<div className="product-card__visual">
-								{/* <img className="product-card__img" src="images/item-7.png" height="344" width="290"
-									alt="Изображение товара"> */}
+								<img className="product-card__img" src="images/item-7.png" height="344" width="290"
+									alt="Изображение товара"></img>
 								<div className="product-card__more">
 									<a href="#" className="product-card__link btn btn--icon" data-add-to-cart data-product-id="1"
 										data-product-name="Потолочная люстра Ornella A4059PL-4AB (Artelamp)" data-product-price="11540">
 										<span className="btn__text">В корзину</span>
-										{/* <svg width="24" height="24" aria-hidden="true">
-												<use xlink:href="images/sprite.svg#icon-basket"></use>
-											</svg> */}
+										<IconBusket width={24} height={24} aria-hidden="true" />
 									</a>
 									<a href="#" className="product-card__link btn btn--secondary">
 										<span className="btn__text">Подробнее</span>
@@ -49,9 +49,7 @@ export function PromoProductsPage() {
 								</span>
 								<div className="product-card__tooltip tooltip">
 									<button className="tooltip__btn" aria-label="Показать подсказку">
-										{/* <svg className="tooltip__icon" width="5" height="10" aria-hidden="true">
-											<use xlink:href="images/sprite.svg#icon-i"></use>
-										</svg> */}
+										<IconI width={5} height={10} aria-hidden="true" />
 									</button>
 									<div className="tooltip__content">
 										<span className="tooltip__text">Наличие товара по городам:</span>

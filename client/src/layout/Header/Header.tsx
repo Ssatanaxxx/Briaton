@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-// import IconLogo from '../../assets/sprite/icon-logo.svg?react';
+import IconLogo from '../../assets/sprite/icon-logo.svg?react';
 
 const LazyOverlay = lazy(() => import("../../components/ui/Overlay/Overlay"))
 const LazyBurgerMenuButton = lazy(() => import("../../components/ui/BurgerMenu/BurgerMenuButton"))
@@ -14,7 +14,7 @@ const Header = () => {
             <div className="header__container">
                 <Suspense fallback={<div>Loading...</div>}>
                     <div className="header__top">
-                        {/* <IconLogo className="header__logo-link" width={140} height={26} aria-hidden="true" /> */}
+                        <IconLogo className="header__logo-link" width={140} height={26} aria-hidden="true" />
                         <LazyBurgerMenuButton />
                         <LazyOverlay />
                         <LazyLocation />

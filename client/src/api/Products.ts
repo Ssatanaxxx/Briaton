@@ -17,144 +17,201 @@ import ItemImage14 from "../assets/item-14.png";
 import ItemImage15 from "../assets/item-15.png";
 import ItemImage16 from "../assets/item-16.png";
 
-export const ProductsSchema = z.object({
-  id: z.number(),
-  name: z.string(),
-  price: z.number(),
-  sell: z.number(),
-  quantity: z.number(),
-  imageUrl: z.any(),
+const ProductSchema = z.object({
+  id: z.number().positive(),
+  name: z.string().min(2),
+  price: z.number().positive(),
+  originalPrice: z.number().positive().optional(),
+  quantity: z.number().int().nonnegative(),
+  imageUrl: z.union([z.string(), z.any()]),
+  isPromo: z.boolean().default(false),
+  category: z.enum(["ceiling", "wall", "floor", "spot", "bundle"]).optional(),
 });
 
-export type Products = z.infer<typeof ProductsSchema>;
+export type Product = z.infer<typeof ProductSchema>;
 
-export const PRODUCT: Products[] = [
-  {
-    id: 0,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 14300,
-    sell: 6540,
-    quantity: 158,
-    imageUrl: ItemImage1,
-  },
-  {
-    id: 1,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 12300,
-    sell: 8540,
-    quantity: 463,
-    imageUrl: ItemImage2,
-  },
-  {
-    id: 2,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 15300,
-    sell: 8540,
-    quantity: 118,
-    imageUrl: ItemImage3,
-  },
-  {
-    id: 3,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 12300,
-    sell: 8540,
-    quantity: 463,
-    imageUrl: ItemImage4,
-  },
-  {
-    id: 4,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 12300,
-    sell: 8540,
-    quantity: 463,
-    imageUrl: ItemImage5,
-  },
-  {
-    id: 5,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 12300,
-    sell: 8540,
-    quantity: 463,
-    imageUrl: ItemImage6,
-  },
-  {
-    id: 6,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 12300,
-    sell: 8540,
-    quantity: 463,
-    imageUrl: ItemImage7,
-  },
-  {
-    id: 7,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 12300,
-    sell: 8540,
-    quantity: 463,
-    imageUrl: ItemImage8,
-  },
-  {
-    id: 8,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 12300,
-    sell: 8540,
-    quantity: 463,
-    imageUrl: ItemImage9,
-  },
-  {
-    id: 9,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 12300,
-    sell: 8540,
-    quantity: 463,
-    imageUrl: ItemImage10,
-  },
-  {
-    id: 10,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 12300,
-    sell: 8540,
-    quantity: 463,
-    imageUrl: ItemImage11,
-  },
-  {
-    id: 11,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 12300,
-    sell: 8540,
-    quantity: 463,
-    imageUrl: ItemImage12,
-  },
-  {
-    id: 12,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 12300,
-    sell: 8540,
-    quantity: 463,
-    imageUrl: ItemImage13,
-  },
-  {
-    id: 13,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 12300,
-    sell: 8540,
-    quantity: 463,
-    imageUrl: ItemImage14,
-  },
-  {
-    id: 14,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 12300,
-    sell: 8540,
-    quantity: 463,
-    imageUrl: ItemImage15,
-  },
-  {
-    id: 15,
-    name: "Потолочная люстра Ornella A4059PL-4AB (Artelamp)",
-    price: 12300,
-    sell: 8540,
-    quantity: 463,
-    imageUrl: ItemImage16,
-  },
+const createProduct = (
+  data: Omit<Product, "id" | "isPromo">,
+  id: number
+): Product => {
+  const isPromo = data.originalPrice !== undefined;
+
+  return ProductSchema.parse({
+    ...data,
+    id,
+    isPromo,
+  });
+};
+
+export const PRODUCT: Product[] = [
+  createProduct(
+    {
+      name: "Хрустальная люстра 'Ornella' A4059PL-4AB",
+      price: 18990,
+      originalPrice: 25400,
+      quantity: 12,
+      imageUrl: ItemImage1,
+      category: "ceiling",
+    },
+    0
+  ),
+  createProduct(
+    {
+      name: "Подвесной светильник 'Milano' с матовым стеклом",
+      price: 12490,
+      quantity: 24,
+      imageUrl: ItemImage2,
+      category: "ceiling",
+    },
+    1
+  ),
+  createProduct(
+    {
+      name: "Люстра 'Venice' золотая с 6 рожками",
+      price: 22450,
+      originalPrice: 28900,
+      quantity: 8,
+      imageUrl: ItemImage3,
+      category: "ceiling",
+    },
+    2
+  ),
+  createProduct(
+    {
+      name: "Бра 'Florence' с хлопковым абажуром",
+      price: 5690,
+      originalPrice: 7890,
+      quantity: 36,
+      imageUrl: ItemImage4,
+      category: "wall",
+    },
+    3
+  ),
+  createProduct(
+    {
+      name: "Светильник 'Ravenna' в стиле лофт",
+      price: 8790,
+      quantity: 17,
+      imageUrl: ItemImage5,
+      category: "wall",
+    },
+    4
+  ),
+  createProduct(
+    {
+      name: "Торшер 'Barcelona' с сенсорным управлением",
+      price: 14500,
+      originalPrice: 18900,
+      quantity: 9,
+      imageUrl: ItemImage6,
+      category: "floor",
+    },
+    5
+  ),
+  createProduct(
+    {
+      name: "Торшер 'Modena' с USB-разъемами",
+      price: 12990,
+      quantity: 14,
+      imageUrl: ItemImage7,
+      category: "floor",
+    },
+    6
+  ),
+  createProduct(
+    {
+      name: "Спот 'Torino' поворотный золотой",
+      price: 3290,
+      originalPrice: 4590,
+      quantity: 42,
+      imageUrl: ItemImage8,
+      category: "spot",
+    },
+    7
+  ),
+  createProduct(
+    {
+      name: "Встраиваемый светильник 'Genova'",
+      price: 2790,
+      quantity: 58,
+      imageUrl: ItemImage9,
+      category: "spot",
+    },
+    8
+  ),
+  createProduct(
+    {
+      name: "Комплект 'Toscana' (люстра + 2 бра)",
+      price: 31990,
+      originalPrice: 42900,
+      quantity: 5,
+      imageUrl: ItemImage10,
+      category: "bundle",
+    },
+    9
+  ),
+  createProduct(
+    {
+      name: "Умная лампа 'SmartGlow' RGB",
+      price: 2490,
+      originalPrice: 3490,
+      quantity: 63,
+      imageUrl: ItemImage11,
+    },
+    10
+  ),
+  createProduct(
+    {
+      name: "Люстра Ornella",
+      price: 2490,
+      originalPrice: 3490,
+      quantity: 63,
+      imageUrl: ItemImage12,
+    },
+    11
+  ),
+  createProduct(
+    {
+      name: "Люстра Ornella",
+      price: 6540,
+      originalPrice: 14300,
+      quantity: 158,
+      imageUrl: ItemImage13,
+      category: "ceiling",
+    },
+    12
+  ),
+  createProduct(
+    {
+      name: "Люстра Ornella",
+      price: 6540,
+      originalPrice: 14300,
+      quantity: 158,
+      imageUrl: ItemImage14,
+      category: "ceiling",
+    },
+    13
+  ),
+  createProduct(
+    {
+      name: "Люстра Ornella",
+      price: 6540,
+      originalPrice: 14300,
+      quantity: 158,
+      imageUrl: ItemImage15,
+      category: "ceiling",
+    },
+    14
+  ),
+  createProduct(
+    {
+      name: "Люстра Ornella",
+      price: 6540,
+      originalPrice: 14300,
+      quantity: 158,
+      imageUrl: ItemImage16,
+      category: "ceiling",
+    },
+    15
+  ),
 ];

@@ -4,16 +4,16 @@ import IsHave from "../../components/ui/IsHave/IsHave";
 import SortProducts from "../../components/ui/SortProducts/SortProducts";
 import ProductCardVisual from "../../components/products/ProductCardVisual/ProductCardVisual";
 import ProductCardList from "../../components/products/ProductCard/ProductCardList";
-import { PRODUCT, Products } from "../../api/Products";
+import { PRODUCT, Product } from "../../api/Products";
 import SortByProducts from "../../components/products/SortByProducts/SortByProducts";
 
 
 interface CatalogPageProps {
-    items?: Products[];
+    product: Product
 }
 
 
-export const CatalogPage = ({ items = [] }: CatalogPageProps) => {
+export const CatalogPage = ({ product }: CatalogPageProps) => {
     return (
         <div className="container">
             <h2 className="catalog__title">Светильники</h2>
@@ -28,7 +28,7 @@ export const CatalogPage = ({ items = [] }: CatalogPageProps) => {
                         <SortProducts />
                     </div>
                     <div className="products-grid product-card-list product-card__info">
-                        <ProductCardVisual item={items} />
+                        <ProductCardVisual product={product} />
                         <ProductCardList card={PRODUCT} />
                     </div>
                 </div>
