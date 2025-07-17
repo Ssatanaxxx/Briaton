@@ -1,6 +1,6 @@
 import "./MainPage.css";
 
-export function MainPage() {
+export const MainPage = () => {
 	return (
 		<div className="mainPage">
 			<h3>Добро пожаловать в «Briaton» — мир света и уюта!</h3>

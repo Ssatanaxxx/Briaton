@@ -1,11 +1,14 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import "./css/style.css";
-import { MainPage, CatalogInfoPage, CatalogPage, LampsInfoPage, LampsPage } from "./pages";
+import { MainPage, CatalogPage, PromoProductsPage } from "./pages";
 import { lazy } from "react";
+import { FAQPage } from "./pages/FAQPage";
+import { QuestionPage } from "./pages/QuestionPage";
 
 const LazyHeaders = lazy(() => import("./layout/Header/Header"))
 const LazyMenu = lazy(() => import("./layout/Menu/Menu"))
 const LazyFooter = lazy(() => import("./layout/Footer/Footer"))
+
 const App = () => {
 	return (
 		<BrowserRouter>
@@ -21,6 +24,8 @@ const App = () => {
 						<Link className="breadcrumbs__link" to={"/"}>Главная</Link>
 						<Link className="breadcrumbs__link" to={"/Product"}>Каталог</Link>
 						<Link className="breadcrumbs__link" to={"/GoodsOfTheDay"}>Светильники</Link>
+						<Link className="breadcrumbs__link" to={"/FAQ"}>Вопросы?</Link>
+						<Link className="breadcrumbs__link" to={"/Questions"}>Сложно выбрать?</Link>
 					</div>
 					<LazyMenu />
 				</nav>
@@ -29,9 +34,9 @@ const App = () => {
 					<Routes>
 						<Route path="/" element={<MainPage />} />
 						<Route path="/Product" element={<CatalogPage />} />
-						<Route path="/Product/:userId" element={<CatalogInfoPage />} />
-						<Route path="/GoodsOfTheDay" element={<LampsPage />} />
-						<Route path="/GoodsOfTheDay/:playlistId" element={<LampsInfoPage />} />
+						<Route path="/GoodsOfTheDay" element={<PromoProductsPage />} />
+						<Route path="/FAQ" element={<FAQPage />} />
+						<Route path="/Questions" element={<QuestionPage />} />
 					</Routes>
 				</main>
 			</div>
