@@ -28,7 +28,7 @@ export const CatalogPage = ({ product }: CatalogPageProps) => {
                         <SortProducts />
                     </div>
                     <div className="products-grid product-card-list product-card__info">
-                        <ProductCardVisual product={product} />
+                        <ProductCardVisual  product={product} />
                         <ProductCardList card={PRODUCT} />
                     </div>
                 </div>

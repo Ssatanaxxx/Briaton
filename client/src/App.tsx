@@ -4,6 +4,7 @@ import { MainPage, CatalogPage, PromoProductsPage } from "./pages";
 import { lazy } from "react";
 import { FAQPage } from "./pages/FAQPage";
 import { QuestionPage } from "./pages/QuestionPage";
+import { PRODUCT } from "./api/Products";
 
 const LazyHeaders = lazy(() => import("./layout/Header/Header"))
 const LazyMenu = lazy(() => import("./layout/Menu/Menu"))
@@ -23,7 +24,7 @@ const App = () => {
 					<div className="navMenn">
 						<Link className="breadcrumbs__link" to={"/"}>Главная</Link>
 						<Link className="breadcrumbs__link" to={"/Product"}>Каталог</Link>
-						<Link className="breadcrumbs__link" to={"/GoodsOfTheDay"}>Светильники</Link>
+						<Link className="breadcrumbs__link" to={"/GoodsOfTheDay"}>Товары по акций</Link>
 						<Link className="breadcrumbs__link" to={"/FAQ"}>Вопросы?</Link>
 						<Link className="breadcrumbs__link" to={"/Questions"}>Сложно выбрать?</Link>
 					</div>

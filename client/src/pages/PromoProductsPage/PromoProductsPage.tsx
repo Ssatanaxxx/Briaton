@@ -8,7 +8,7 @@ export function PromoProductsPage() {
 	return (
 		<div className="container">
 			<div className="day-products__top">
-				<h2 className="catalog__title">Светильники</h2>
+				<h2 className="catalog__title">Товары по акций</h2>
 				<div className="day-products__navigation">
 					<button className="day-products__navigation-btn day-products__navigation-btn--prev" disabled type="button">
 						<IconArrowPrev width={41} height={9} aria-hidden="true" />

@@ -6,7 +6,7 @@ interface ProductCardProps {
     product: Product;
 }
 
-const ProductCard = ({ product = [] }: ProductCardProps) => {
+const ProductCard = ({ product }: ProductCardProps) => {
     const hasDiscount = product.originalPrice !== undefined;
 
     return (

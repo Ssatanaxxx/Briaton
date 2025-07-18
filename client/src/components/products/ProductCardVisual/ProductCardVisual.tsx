@@ -6,6 +6,11 @@ interface ProductCardVisualProps {
 }
 
 const ProductCardVisual = ({ product }: ProductCardVisualProps) => {
+    console.log('Product data:', product);
+
+    if (!product) {
+        return <div>Товар не загуржен</div>
+    }
     return (
         <div className="product-card__visual" key={product.id}>
             <img
@@ -13,8 +18,9 @@ const ProductCardVisual = ({ product }: ProductCardVisualProps) => {
                 src={product.imageUrl}
                 height="436"
                 width="290"
-                alt="Изображение товара"
+                alt={product.name}
                 loading="lazy"
+                onError={(e) => {(e.currentTarget as HTMLImageElement).src = '/placeholder.jpg'}}
             />
             <div className="product-card__more">
                 <a
