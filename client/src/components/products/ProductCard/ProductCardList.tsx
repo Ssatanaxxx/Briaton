@@ -3,11 +3,15 @@ import ProductCard from "./ProductCard"
 
 
 interface ProductCardListProps {
-    card: Product[]
+    card?: Product[]
 }
 
 
-const ProductCardList = ({ card }: ProductCardListProps) => {
+const ProductCardList = ({ card = [] }: ProductCardListProps) => {
+
+    if(!card) {
+        return <div>Нет товаров</div>
+    }
     return (
         <ul className="products-grid product-card-list">
             {card.map((item) => (

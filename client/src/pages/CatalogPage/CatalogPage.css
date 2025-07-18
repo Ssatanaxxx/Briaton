@@ -67,8 +67,6 @@
 /* Визуальная часть */
 .product-card__visual {
     position: relative;
-    padding-top: 100%;
-    /* Квадратное соотношение */
     background: #f8f8f8;
 }
 

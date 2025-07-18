@@ -53,7 +53,7 @@ export const PRODUCT: Product[] = [
       imageUrl: ItemImage1,
       category: "ceiling",
     },
-    0
+    1
   ),
   createProduct(
     {
@@ -63,7 +63,7 @@ export const PRODUCT: Product[] = [
       imageUrl: ItemImage2,
       category: "ceiling",
     },
-    1
+    2
   ),
   createProduct(
     {
@@ -74,7 +74,7 @@ export const PRODUCT: Product[] = [
       imageUrl: ItemImage3,
       category: "ceiling",
     },
-    2
+    3
   ),
   createProduct(
     {
@@ -85,7 +85,7 @@ export const PRODUCT: Product[] = [
       imageUrl: ItemImage4,
       category: "wall",
     },
-    3
+    4
   ),
   createProduct(
     {
@@ -95,7 +95,7 @@ export const PRODUCT: Product[] = [
       imageUrl: ItemImage5,
       category: "wall",
     },
-    4
+    5
   ),
   createProduct(
     {
@@ -106,7 +106,7 @@ export const PRODUCT: Product[] = [
       imageUrl: ItemImage6,
       category: "floor",
     },
-    5
+    6
   ),
   createProduct(
     {
@@ -116,7 +116,7 @@ export const PRODUCT: Product[] = [
       imageUrl: ItemImage7,
       category: "floor",
     },
-    6
+    7
   ),
   createProduct(
     {
@@ -127,7 +127,7 @@ export const PRODUCT: Product[] = [
       imageUrl: ItemImage8,
       category: "spot",
     },
-    7
+    8
   ),
   createProduct(
     {
@@ -137,7 +137,7 @@ export const PRODUCT: Product[] = [
       imageUrl: ItemImage9,
       category: "spot",
     },
-    8
+    9
   ),
   createProduct(
     {
@@ -148,7 +148,7 @@ export const PRODUCT: Product[] = [
       imageUrl: ItemImage10,
       category: "bundle",
     },
-    9
+    10
   ),
   createProduct(
     {
@@ -158,7 +158,7 @@ export const PRODUCT: Product[] = [
       quantity: 63,
       imageUrl: ItemImage11,
     },
-    10
+    11
   ),
   createProduct(
     {
@@ -168,7 +168,7 @@ export const PRODUCT: Product[] = [
       quantity: 63,
       imageUrl: ItemImage12,
     },
-    11
+    12
   ),
   createProduct(
     {
@@ -179,7 +179,7 @@ export const PRODUCT: Product[] = [
       imageUrl: ItemImage13,
       category: "ceiling",
     },
-    12
+    13
   ),
   createProduct(
     {
@@ -190,7 +190,7 @@ export const PRODUCT: Product[] = [
       imageUrl: ItemImage14,
       category: "ceiling",
     },
-    13
+    14
   ),
   createProduct(
     {
@@ -201,7 +201,7 @@ export const PRODUCT: Product[] = [
       imageUrl: ItemImage15,
       category: "ceiling",
     },
-    14
+    15
   ),
   createProduct(
     {
@@ -212,6 +212,6 @@ export const PRODUCT: Product[] = [
       imageUrl: ItemImage16,
       category: "ceiling",
     },
-    15
+    16
   ),
 ];
