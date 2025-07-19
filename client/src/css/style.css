@@ -2129,6 +2129,7 @@ button {
 }
 
 .faq__wrapper {
+  padding: 70px 0;
   display: grid;
   grid-template-columns: 1fr 672px;
   gap: 69px;
@@ -2524,3 +2525,5 @@ button {
   gap: 25px;
   align-items: center;
 }
+
+
