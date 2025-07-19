@@ -1,91 +1,84 @@
-        /* Основные стили кнопки */
-        .header__catalog-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 15px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            position: relative;
-            z-index: 101;
-        }
+/* Кнопка бургера */
+.burger-button {
+    position: relative;
+    z-index: 100;
+    width: 40px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+}
 
-        /* Стили списка меню */
-        .header_catalog-list {
-            position: fixed;
-            top: 0;
-            left: -300px;
-            width: 300px;
-            height: 100vh;
-            background: #fff;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            margin: 0;
-            padding: 70px 20px 20px;
-            list-style: none;
-            z-index: 100;
-            transition: left 0.3s ease-in-out;
-        }
+.burger-line {
+    height: 3px;
+    width: 100%;
+    background: #333;
+    transition: all 0.3s ease;
+}
 
-        /* Класс для открытого состояния */
-        .header_catalog-list.open {
-            left: 0;
-        }
+/* Анимация кнопки при открытии */
+.burger-button.open .burger-line:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
 
-        /* Затемнение фона */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-            z-index: 99;
-        }
+.burger-button.open .burger-line:nth-child(2) {
+    opacity: 0;
+}
 
-        .overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
+.burger-button.open .burger-line:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
 
-        /* Стили пунктов меню */
-        .header_catalog-item {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-        }
+/* Боковая панель */
+.burger-sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    max-width: 80%;
+    height: 100vh;
+    background: white;
+    z-index: 90;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
 
-        .header_catalog-item-link {
-            display: block;
-            color: #333;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.2s;
-        }
+.burger-sidebar.open {
+    left: 0;
+}
 
-        .header_catalog-item-link:hover {
-            color: #9BE198;
-        }
+/* Затемнение фона */
+.burger-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 80;
+}
 
+/* Стили навигации */
+.burger-nav {
+    padding: 80px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-        /* Кастомный скролл */
-        .header_burger-list::-webkit-scrollbar {
-            width: 6px;
-        }
+.burger-nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
 
-        .header_burger-list::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 3px;
-        }
-
-        .header_burger-list::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
-            border-radius: 3px;
-        }
-
-        .header_burger-list::-webkit-scrollbar-thumb:hover {
-            background: #a8a8a8;
-        }
+.burger-nav a:hover {
+    background: #f0f0f0;
+}
