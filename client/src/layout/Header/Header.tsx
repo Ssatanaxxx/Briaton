@@ -6,7 +6,7 @@ const LazyBurgerMenuButton = lazy(() => import("../../components/ui/BurgerMenu/B
 const LazyBurgerMenu = lazy(() => import("../../components/ui/BurgerMenu/BurgerMenu"))
 const LazyLocation = lazy(() => import("../../components/ui/Location/Location"))
 const LazyBusket = lazy(() => import("../../components/ui/Cart/Cart"))
-const LazyAccount = lazy(() => import("../../auth/AuthForm/Account"))
+const LazyButton = lazy(() => import("../../auth/AuthForm/Button"))
 
 
 const Header = () => {
@@ -27,12 +27,12 @@ const Header = () => {
                     </div>
                     <div className="header__bottom">
                         <LazyBusket />
-                        <LazyAccount />
+                        <LazyButton title={''} ><div>Войти</div></LazyButton>
                     </div>
                 </Suspense>
-            </div>
+            </div >
 
-        </div>
+        </div >
     )
 }
 
