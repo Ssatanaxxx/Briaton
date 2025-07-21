@@ -1,4 +1,6 @@
-export const Modal = () => {
+import { memo } from "react"
+
+export const Modal = memo(() => {
     return (
         <div className="modal-overlay" id="cartModal">
             <div className="modal-container cart-modal">
@@ -56,4 +58,4 @@ export const Modal = () => {
             </div>
         </div>
     )
-}
+})

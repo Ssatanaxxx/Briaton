@@ -1,3 +1,4 @@
+import { memo, useMemo } from "react";
 import { Product } from "../../../api/Products";
 import IconI from "../../../assets/sprite/icon-i.svg?react";
 import ProductCardVisual from "../ProductCardVisual/ProductCardVisual";
@@ -6,8 +7,18 @@ interface ProductCardProps {
     product: Product;
 }
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = memo(({ product }: ProductCardProps) => {
     const hasDiscount = product.originalPrice !== undefined;
+
+    const [formattedPrice, formattedOriginalPrice, discountPercentage] = useMemo(() => {
+        const formattedPrice = product.price.toLocaleString('ru-RU');
+        const formattedOriginalPrice = product.originalPrice?.toLocaleString('ru-RU');
+        const discount = hasDiscount
+            ? Math.round(((product.originalPrice! - product.price) / product.originalPrice! * 100)
+            ) : 0;
+
+        return [formattedPrice, formattedOriginalPrice, discount];
+    }, [product.price, product.originalPrice, hasDiscount]);
 
     return (
         <div className="product-card">
@@ -22,7 +33,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     {hasDiscount && (
                         <span className="product-card__old">
                             <span className="product-card__old-number">
-                                {product.originalPrice?.toLocaleString('ru-RU')}
+                                {formattedOriginalPrice}
                             </span>
                             <span className="product-card__old-add">₽</span>
                         </span>
@@ -30,15 +41,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
                     <span className="product-card__price">
                         <span className="product-card__price-number">
-                            {product.price.toLocaleString('ru-RU')}
+                            {formattedPrice}
                         </span>
                         <span className="product-card__price-add">₽</span>
                         {hasDiscount && (
                             <span className="product-card__discount">
-                                -{Math.round(
-                                    ((product.originalPrice! - product.price) /
-                                        product.originalPrice!) * 100
-                                )}%
+                                -{discountPercentage}%
                             </span>
                         )}
                     </span>
@@ -46,7 +54,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
                 <div className="product-card__tooltip tooltip">
                     <button className="tooltip__btn" aria-label="Показать подсказку">
-                        <IconI loading={"lazy"} className="tooltip__icon" width={5} height={10} aria-hidden="true" />
+                        <IconI
+                            loading="lazy"
+                            className="tooltip__icon"
+                            width={5}
+                            height={10}
+                            aria-hidden="true"
+                        />
                     </button>
 
                     <div className="tooltip__content">
@@ -70,6 +84,6 @@ const ProductCard = ({ product }: ProductCardProps) => {
             </div>
         </div>
     );
-};
+});
 
 export default ProductCard;
