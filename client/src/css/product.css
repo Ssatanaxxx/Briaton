@@ -1,178 +1,184 @@
-/* Основная карточка товара */
-.product-card {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+.product-item {
+    min-width: 215px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
-/* Контейнер изображения */
-.product-card__visual {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  background: #f8f8f8;
-  overflow: hidden;
+.product-item:hover {
+    transform: translateY(-5px);
 }
 
-.product-card__image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: transform 0.5s ease;
-  padding: 20px;
+.product-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
 }
 
-.product-card:hover .product-card__image {
-  transform: scale(1.03);
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Блок с информацией */
+.badge-day {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff5722;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.price-new {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.price-old {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 10px;
+}
+
+.in-stock {
+    color: #4caf50;
+}
+
+.out-of-stock {
+    color: #f44336;
+}
+
+.btn-add-to-cart {
+    width: 100%;
+    padding: 10px;
+    background: #42f377;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-add-to-cart:hover {
+    background: #16c04e;
+}
+
 .product-card__info {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-/* Заголовок товара */
-.product-card__title {
-  font-size: 15px;
-  line-height: 1.4;
-  margin: 0 0 12px 0;
-  color: #333;
-  font-weight: 500;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  min-height: 42px;
-}
-
-/* Ценовые блоки */
-.product-card__prices {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.product-card-price {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+    position: relative;
 }
 
-.product-card__more {
-  display: flex;
-  flex-direction: column;
-}
-
-.product-card__price {
-  font-size: 18px;
-  font-weight: 700;
-  color: #222;
+.product-card__title {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19.6px;
 }
 
 .product-card__old {
-  font-size: 14px;
-  color: #999;
-  text-decoration: line-through;
-}
-
-/* Кнопка тултипа */
-.product-card__tooltip {
-  margin-top: auto;
-}
-
-.tooltip__btn {
-  background: none;
-  border: none;
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  padding: 4px;
-  margin-left: -4px;
-}
-
-.tooltip__icon {
-  fill: #999;
-  transition: fill 0.2s;
-}
-
-.tooltip__btn:hover .tooltip__icon {
-  fill: #555;
-}
-
-/* Содержимое тултипа */
-.tooltip__content {
-  display: none;
-  position: absolute;
-  background: white;
-  padding: 12px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-  width: 220px;
-  font-size: 13px;
-}
-
-.tooltip__btn:hover + .tooltip__content,
-.tooltip__content:hover {
-  display: block;
-}
-
-.tooltip__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.tooltip__item {
-  padding: 4px 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-.tooltip__count {
-  font-weight: 600;
-}
-
-/* Сетка товаров */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 24px;
-  padding: 0;
-  list-style: none;
-}
-
-@media (max-width: 768px) {
-  .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 16px;
-  }
-  
-  .product-card__title {
-    font-size: 14px;
-  }
-  
-  .product-card__price {
+    text-decoration: line-through;
+    color: #A5A5A5;
     font-size: 16px;
-  }
+    line-height: 22.4px;
 }
+
+.product-card__price {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 31.2px;
+}
+
+.product-card__tooltip {
+    position: absolute;
+    bottom: 3px;
+    right: 0;
+}
+
+.product-card__link {
+    width: 210px;
+    position: relative;
+}
+
+.product-card__link::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+
+.catalog__products {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
+  .product-card--small {
+    width: 290px;
+  }
+  .product-card--small .product-card__visual {
+    height: 344px;
+  }
+  .product-card--small .product-card__img {
+    height: 344px;
+  }
+  .product-card__visual {
+    background-color: #F8F8F8;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    height: 436px;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .product-card__visual:hover .product-card__more {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .product-card__img {
+    max-width: 100%;
+    height: 436px;
+    object-fit: contain;
+    transform: scale(1.03);
+  }
+  .product-card__more {
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity ease-in 0.3s;
+  }

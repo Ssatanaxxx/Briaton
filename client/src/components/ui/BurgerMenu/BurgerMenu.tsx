@@ -1,45 +1,54 @@
-import { useEffect } from "react";
+import { memo, useEffect, useCallback } from "react";
 
 type Props = {
     isOpen: boolean;
     onClose: () => void;
 };
 
-const BurgerMenu = ({ isOpen, onClose }: Props) => {
+const menuItems = [
+    "Ф__Ч", "И__Т", "Г__О", "З__Д", "Н__О",
+    "А__Б", "Е__А", "Т__В", "___И", "___Т", "___Ь"
+];
 
+const BurgerMenu = memo(({ isOpen, onClose }: Props) => {
     useEffect(() => {
-        document.body.style.overflow = isOpen ? 'hidden' : 'unset';
-        return () => { document.body.style.overflow = 'unset'; };
+        if (typeof document !== 'undefined') {
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+            return () => { document.body.style.overflow = ''; };
+        }
     }, [isOpen]);
+
+    const handleLinkClick = useCallback((e: React.MouseEvent) => {
+        e.preventDefault();
+        onClose();
+    }, [onClose]);
 
     return (
         <div className="burger-container">
-            {/* Затемнение фона */}
             {isOpen && (
                 <div
                     className="burger-backdrop"
                     onClick={onClose}
+                    aria-hidden="true"
                 />
             )}
 
-            {/* Само меню */}
             <div className={`burger-sidebar ${isOpen ? 'open' : ''}`}>
                 <nav className="burger-nav">
-                    <a href="#" onClick={onClose}>Ф__Ч</a>
-                    <a href="#" onClick={onClose}>И__Т</a>
-                    <a href="#" onClick={onClose}>Г__О</a>
-                    <a href="#" onClick={onClose}>З__Д</a>
-                    <a href="#" onClick={onClose}>Н__О</a>
-                    <a href="#" onClick={onClose}>А__Б</a>
-                    <a href="#" onClick={onClose}>Е__А</a>
-                    <a href="#" onClick={onClose}>Т__В</a>
-                    <a href="#" onClick={onClose}>___И</a>
-                    <a href="#" onClick={onClose}>___Т</a>
-                    <a href="#" onClick={onClose}>___Ь</a>
+                    {menuItems.map((item, index) => (
+                        <a
+                            key={index}
+                            href="#"
+                            onClick={handleLinkClick}
+                            className="burger-nav__link"
+                        >
+                            {item}
+                        </a>
+                    ))}
                 </nav>
             </div>
         </div>
     );
-};
+});
 
 export default BurgerMenu;
