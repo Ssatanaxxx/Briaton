@@ -1315,6 +1315,10 @@ button {
   padding: 0 20px;
 }
 
+.catalog__container {
+  padding: 50px;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

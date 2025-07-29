@@ -6,8 +6,8 @@ type Props = {
 };
 
 const menuItems = [
-    "Ф__Ч", "И__Т", "Г__О", "З__Д", "Н__О",
-    "А__Б", "Е__А", "Т__В", "___И", "___Т", "___Ь"
+    "Люстры", "Светильники", "Бра и подсветки", "Споты", "Настольные лампы",
+    "Торшеры", "Трековые системы", "Уличное освещение", "Офисное освещение", "Лампочки", "Светодиоидная подсветка"
 ];
 
 const BurgerMenu = memo(({ isOpen, onClose }: Props) => {
@@ -34,7 +34,8 @@ const BurgerMenu = memo(({ isOpen, onClose }: Props) => {
             )}
 
             <div className={`burger-sidebar ${isOpen ? 'open' : ''}`}>
-                <nav className="burger-nav">
+                <ul className="burger-nav">
+                    <h2 className="header_burger-title">Каталог Товаров</h2>
                     {menuItems.map((item, index) => (
                         <a
                             key={index}
@@ -45,7 +46,8 @@ const BurgerMenu = memo(({ isOpen, onClose }: Props) => {
                             {item}
                         </a>
                     ))}
-                </nav>
+                </ul>
+
             </div>
         </div>
     );
