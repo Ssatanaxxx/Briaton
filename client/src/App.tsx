@@ -34,7 +34,7 @@ const App = () => {
 				<main className="content">
 					<Routes>
 						<Route path="/" element={<MainPage />} />
-						<Route path="/Product" element={<CatalogPage />} />
+						<Route path="/Product" element={<CatalogPage product={undefined} />} />
 						<Route path="/GoodsOfTheDay" element={<PromoProductsPage />} />
 						<Route path="/FAQ" element={<FAQPage />} />
 						<Route path="/Questions" element={<QuestionPage />} />
