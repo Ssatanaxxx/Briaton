@@ -2,7 +2,7 @@
 .mainPage {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 3rem;
   color: #333;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
@@ -38,11 +38,13 @@
 
 /* Типографика */
 .main-page__title {
+  margin: 0;
   font-size: 2.5rem;
+  font-weight: 500; 
+  line-height: 1.2;
+  margin-bottom: 2rem;
   color: #d4af37;
   text-align: center;
-  margin-bottom: 1.5rem;
-  font-weight: 300;
   letter-spacing: 1px;
   opacity: 0;
   animation: fadeIn 0.5s ease-in-out 0.1s forwards;
@@ -88,8 +90,6 @@
   position: relative;
   padding-left: 2rem;
   margin-bottom: 0.8rem;
-  font-size: 1.1rem;
-  color: #555;
   transition: all 0.3s ease;
 }
 
@@ -107,6 +107,10 @@
 .main-page__product-item:hover {
   color: #222;
   padding-left: 2.2rem;
+}
+
+.main-page__item-text {
+  font-size: 15px;
 }
 
 /* Подпись */

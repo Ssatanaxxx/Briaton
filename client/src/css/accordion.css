@@ -35,3 +35,17 @@
 .accordion__content.active .accordion__inner {
     opacity: 1;
 }
+
+.accordion__content {
+  display: none;
+  /* Изначально скрываем текст */
+}
+
+.accordion__content.visible {
+  display: block;
+  /* Показываем текст при добавлении класса visible */
+}
+
+.accordion__btn--active+.accordion__content {
+  display: flex;
+}

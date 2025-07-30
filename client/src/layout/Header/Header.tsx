@@ -1,12 +1,11 @@
 import { lazy, Suspense, useState } from 'react';
 import IconLogo from '../../assets/sprite/icon-logo.svg?react';
 
-const LazyOverlay = lazy(() => import("../../components/ui/Overlay/Overlay"))
-const LazyBurgerMenuButton = lazy(() => import("../../components/ui/BurgerMenu/BurgerMenuButton"));
-const LazyBurgerMenu = lazy(() => import("../../components/ui/BurgerMenu/BurgerMenu"))
-const LazyLocation = lazy(() => import("../../components/ui/Location/Location"))
-const LazyBusket = lazy(() => import("../../components/ui/Cart/Cart"))
-const LazyButton = lazy(() => import("../../auth/AuthForm/Button"))
+const LazyBurgerMenuButton = lazy(() => import("../../components/ui/HeaderChoicePage/BurgerMenu/BurgerMenuButton"));
+const LazyBurgerMenu = lazy(() => import("../../components/ui/HeaderChoicePage/BurgerMenu/BurgerMenu"))
+const LazyLocation = lazy(() => import("../../components/ui/HeaderChoicePage/Location/Location"))
+const LazyBusket = lazy(() => import("../../components/Cart/Cart"))
+const LazyButton = lazy(() => import("../../components/auth/AuthForm/Button"))
 
 
 const Header = () => {
@@ -22,7 +21,6 @@ const Header = () => {
                             isOpen={isMenuOpen}
                             onClose={() => setIsMenuOpen(false)}
                         />
-                        <LazyOverlay />
                         <LazyLocation />
                     </div>
                     <div className="header__bottom">

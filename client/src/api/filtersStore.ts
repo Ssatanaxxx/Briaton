@@ -1,8 +1,8 @@
 import { z } from "zod";
 
-export const FilterStoreShema = z.object({
-  sortBy: z.enum(["price-min", "price-max", "rating-max"]),
+export const FilterStoreSchema = z.object({
+  sortBy: z.enum(["price-asc", "price-desc", "popular"]),
   searchQuery: z.string().default(""),
 });
 
-export type Filters = z.infer<typeof FilterStoreShema>;
+export type storeOption = z.infer<typeof FilterStoreSchema>;

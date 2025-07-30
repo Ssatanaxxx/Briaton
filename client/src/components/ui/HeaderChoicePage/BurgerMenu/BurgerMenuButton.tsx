@@ -1,5 +1,5 @@
 import { memo, useCallback } from "react";
-import IconMenu from "../../../assets/sprite/icon-menu.svg?react";
+import IconMenu from "../../../../assets/sprite/icon-menu.svg?react";
 
 type Props = {
   onClick: () => void;

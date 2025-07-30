@@ -1,4 +1,4 @@
-import IconUser from "../../assets/sprite/icon-user.svg?react"
+import IconUser from "../../../assets/sprite/icon-user.svg?react"
 import { ReactNode } from "react";
 
 interface ButtonProps {

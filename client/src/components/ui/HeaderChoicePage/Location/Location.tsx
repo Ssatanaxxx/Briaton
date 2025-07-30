@@ -1,8 +1,8 @@
-import IconLocation from "../../../assets/sprite/icon-location.svg?react";
-import IconArrowBottom from "../../../assets/sprite/icon-arrow-bottom.svg?react";
+import IconLocation from "../../../../assets/sprite/icon-location.svg?react";
+import IconArrowBottom from "../../../../assets/sprite/icon-arrow-bottom.svg?react";
 import { useState } from "react";
 import LocationList from "./LocationList";
-import { City } from "../../../api/Location";
+import { City } from "../../../../api/Location";
 
 const Location = () => {
     const [isOpen, setIsOpen] = useState(false);
