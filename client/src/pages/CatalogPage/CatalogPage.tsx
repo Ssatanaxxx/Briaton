@@ -1,11 +1,11 @@
 import "./CatalogPage.css";
-import SortProducts from "../../components/ui/SortProducts/SortProducts";
-import ProductCardVisual from "../../components/products/ProductCardVisual/ProductCardVisual";
+import SortProducts from "../../components/ui/MainChoicePage/SortProducts";
+import ProductCardVisual from "../../components/products/ProductCard/ProductCardVisual";
 import ProductCardList from "../../components/products/ProductCard/ProductCardList";
 import { PRODUCT, Product } from "../../api/Products";
-import ResetFilter from "../../components/ui/ResetFilter/ResetFilter";
-import FieldsetSortProduct from "../../components/ui/FieldsetSortProduct/FieldsetSortProduct";
-import FieldsetChoiceProduct from "../../components/ui/FieldsetChoiceProduct/FieldsetChoiceProduct";
+import ResetFilter from "../../components/ui/MainChoicePage/ResetFilter";
+import { FieldsetSortProduct } from "../../components/ui/MainChoicePage/FieldsetSort/FieldsetSortProductCard";
+import IsHave from "../../components/ui/MainChoicePage/IsHave";
 
 interface CatalogPageProps {
     product: Product
@@ -21,7 +21,7 @@ export const CatalogPage = ({ product }: CatalogPageProps) => {
                     <form action="#" method="get" className="catalog-form">
                         <ResetFilter />
                         <FieldsetSortProduct />
-                        <FieldsetChoiceProduct />
+                        <IsHave />
                     </form>
                     <div className="catalog__products">
                         <div className="catalog__sort">

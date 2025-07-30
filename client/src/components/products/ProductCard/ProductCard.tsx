@@ -1,7 +1,7 @@
 import { memo, useMemo } from "react";
 import { Product } from "../../../api/Products";
 import IconI from "../../../assets/sprite/icon-i.svg?react";
-import ProductCardVisual from "../ProductCardVisual/ProductCardVisual";
+import ProductCardVisual from "./ProductCardVisual";
 
 interface ProductCardProps {
     product: Product;

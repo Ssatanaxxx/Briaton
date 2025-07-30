@@ -1,4 +1,4 @@
-import { Location } from "../../../api/Location";
+import { Location } from "../../../../api/Location";
 
 interface LocationListProps {
     city: Location[];

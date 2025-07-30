@@ -1,6 +1,9 @@
 import "./MainPage.css";
+import MainPageProductList from "../../components/ui/PartsMainPage/MainPageProductList"
+import { MainPageProduct } from "../../components/ui/PartsMainPage/interface"
 import MainImage from "../../assets/mainImage.jpg"
-export const MainPage = () => {
+import { memo } from "react";
+export const MainPage = memo(() => {
 	return (
 		<div className="mainPage">
 			<h3 className="main-page__title">Добро пожаловать в «Briaton» — мир света и уюта!</h3>
@@ -14,52 +17,15 @@ export const MainPage = () => {
 			<h4 className="main-page__section-title">У нас вы найдёте всё для идеального освещения:</h4>
 			<div className="mainPage__content">
 				<div className="mainPage__content-left">
-
-					<ul className="main-page__product-list">
-						<li className="main-page__product-item">
-							Люстры — роскошные, классические и современные, для гостиных, спален и столовых.
-						</li>
-						<li className="main-page__product-item">
-							Светильники — стильные решения для любого интерьера.
-						</li>
-						<li className="main-page__product-item">
-							Бра и подсветки — уютное локальное освещение для коридоров, спален и зон отдыха.
-						</li>
-						<li className="main-page__product-item">
-							Споты — гибкие системы направленного света для современного дизайна.
-						</li>
-						<li className="main-page__product-item">
-							Настольные лампы — функциональные и декоративные, для работы и уюта.
-						</li>
-						<li className="main-page__product-item">
-							Торшеры — элегантные напольные лампы для создания атмосферы.
-						</li>
-						<li className="main-page__product-item">
-							Трековые системы — универсальное освещение для магазинов, лофтов и кухонь.
-						</li>
-						<li className="main-page__product-item">
-							Уличное освещение — фонари, садовые светильники и подсветка фасадов.
-						</li>
-						<li className="main-page__product-item">
-							Офисное освещение — эргономичные и энергоэффективные решения.
-						</li>
-						<li className="main-page__product-item">
-							Лампочки — LED, филаментные, умные и другие технологии.
-						</li>
-						<li className="main-page__product-item">
-							Светодиодная подсветка — для мебели, потолков и декоративных элементов.
-						</li>
-						<li className="main-page__product-item">
-							Предметы интерьера — светильники-скульптуры и арт-объекты.
-						</li>
-						<li className="main-page__product-item">
-							Электротовары — кабели, выключатели и умные системы управления светом.
-						</li>
-					</ul>
-
+					<MainPageProductList products={MainPageProduct} />
 				</div>
 				<div className="mainPage__content-right">
-					<img src={MainImage} alt="" />
+					<img
+						src={MainImage}
+						alt="Пример освещения от Briaton"
+						className="mainPage__image"
+						loading="lazy"
+					/>
 				</div>
 			</div>
 			<p className="main-page__mission-text">
@@ -68,4 +34,4 @@ export const MainPage = () => {
 			<span>💡 «Briaton» — освещаем вашу жизнь с 2015 года.</span>
 		</div>
 	);
-}
+})

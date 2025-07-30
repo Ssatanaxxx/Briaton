@@ -1,5 +1,5 @@
 
-import IconBusket from "../../../assets/sprite/icon-basket.svg?react"
+import IconBusket from "../../assets/sprite/icon-basket.svg?react"
 
 const Busket = () => {
     return (

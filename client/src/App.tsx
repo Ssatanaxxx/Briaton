@@ -24,9 +24,8 @@ const App = () => {
 					<div className="navMenn">
 						<Link className="breadcrumbs__link" to={"/"}>Главная</Link>
 						<Link className="breadcrumbs__link" to={"/Product"}>Каталог</Link>
-						<Link className="breadcrumbs__link" to={"/GoodsOfTheDay"}>Товары по акций</Link>
-						<Link className="breadcrumbs__link" to={"/FAQ"}>Вопросы?</Link>
-						<Link className="breadcrumbs__link" to={"/Questions"}>Сложно выбрать?</Link>
+						<Link className="breadcrumbs__link" to={"/FAQ"}>Вопросы</Link>
+						<Link className="breadcrumbs__link" to={"/Questions"}>Сложно выбрать</Link>
 					</div>
 					<LazyMenu />
 				</nav>
@@ -35,7 +34,6 @@ const App = () => {
 					<Routes>
 						<Route path="/" element={<MainPage />} />
 						<Route path="/Product" element={<CatalogPage product={undefined} />} />
-						<Route path="/GoodsOfTheDay" element={<PromoProductsPage />} />
 						<Route path="/FAQ" element={<FAQPage />} />
 						<Route path="/Questions" element={<QuestionPage />} />
 					</Routes>

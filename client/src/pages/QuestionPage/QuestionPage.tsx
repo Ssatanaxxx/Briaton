@@ -1,5 +1,5 @@
 
-// import "QuestionPage.css"
+import "./QuestionPage.css"
 export const QuestionPage = () => {
     return (
         <div className="container">
@@ -8,7 +8,6 @@ export const QuestionPage = () => {
                     <span className="questions__title-text">Сложно выбрать?</span>
                     <span className="questions__title-text">Обратитесь к нам и мы поможем</span>
                 </h2>
-                {/* <img className="questions__img" src="images/lamp.png" width="253" height="319" alt="Фотография лампы"> */}
                 <p className="questions__text">Эксперты по светотехнике подберут накладные светильники специально под вашу задачу.
                     Вы получите проект освещения и профессиональную консультацию бесплатно.</p>
                 <form action="#" method="POST" className="questions__form">
@@ -27,9 +26,6 @@ export const QuestionPage = () => {
                         <input className="visually-hidden custom-checkbox__field" required id="agree" type="checkbox" name="pendant"></input>
                         <label className="custom-checkbox__label" htmlFor="agree">
                             <span className="custom-checkbox__name">Я согласен с политикой конфиденциальности</span>
-                            {/* <svg className="custom-checkbox__icon" width="10" height="10" aria-hidden="true">
-                  <use xlink:href="images/sprite.svg#icon-check"></use>
-                </svg> */}
                         </label>
                     </div>
                 </form>
