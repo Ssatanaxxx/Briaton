@@ -1,15 +1,18 @@
 
-// import IconFooterLogo from "../../assets/sprite/icon-logo-black.svg?react"
-// import IconFooterVisa from "../../assets/sprite/icon-visa.svg?react"
-// import IconFooterMC from "../../assets/sprite/icon-mc.svg?react"
-// import IconFooterMir from "../../assets/sprite/icon-mir.svg?react"
-// import IconFooterAffarts from "../../assets/sprite/icon-affarts.svg?react"
+import IconFooterLogo from "../../assets/sprite/icon-logo-black.svg?react"
+import IconFooterVisa from "../../assets/sprite/icon-visa.svg?react"
+import IconFooterMC from "../../assets/sprite/icon-mc.svg?react"
+import IconFooterMir from "../../assets/sprite/icon-mir.svg?react"
+import IconFooterAffarts from "../../assets/sprite/icon-affarts.svg?react"
 
-const Footer = () => {
+import "./Footer.css"
+
+
+const Footer: React.FC = () => {
     return (
         <>
             <div className="footer__main">
-                {/* <IconFooterLogo className="footer__logo-link" width={180} height={33} aria-hidden="true" /> */}
+                <IconFooterLogo className="footer__logo-link" width={180} height={33} aria-hidden="true" />
                 <div className="footer__menu">
                     <div className="footer__box">
                         <div className="footer__contact">
@@ -44,13 +47,13 @@ const Footer = () => {
                     <button className="footer__btn btn">Свяжитесь с нами</button>
                     <ul className="footer__cards">
                         <li className="footer__card">
-                            {/* <IconFooterVisa className="footer__logo" width={44} height={15} aria-hidden="true" /> */}
+                            <IconFooterVisa className="footer__logo" width={44} height={15} aria-hidden="true" />
                         </li>
                         <li className="footer__card">
-                            {/* <IconFooterMC className="footer__logo" width={34} height={22} aria-hidden="true" /> */}
+                            <IconFooterMC className="footer__logo" width={34} height={22} aria-hidden="true" />
                         </li>
                         <li className="footer__card">
-                            {/* <IconFooterMir className="footer__logo" width={66} height={19} aria-hidden="true"/> */}
+                            <IconFooterMir className="footer__logo" width={66} height={19} aria-hidden="true"/>
                         </li>
                     </ul>
                 </div>
@@ -63,7 +66,7 @@ const Footer = () => {
                 <span className="footer__copyright">© ООО "Бриатон"</span>
                 <a className="footer__develop" href="https://affarts.ru/">
                     <span className="footer__develop-text">Дизайн сделан в</span>
-                    {/* <IconFooterAffarts className="footer__develop-logo" width={62} height={18} aria-hidden="true"/> */}
+                    <IconFooterAffarts className="footer__develop-logo" width={62} height={18} aria-hidden="true"/>
                 </a>
             </div >
 

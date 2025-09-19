@@ -13,8 +13,8 @@ export const STATUS_OPTIONS = {
 
 export type ProductCategory = "ceiling" | "wall" | "floor" | "spot" | "bundle";
 
-type ProductFilterStatus = typeof STATUS_OPTIONS[keyof typeof STATUS_OPTIONS];
-export type SortOption = typeof SORT_OPTIONS[keyof typeof SORT_OPTIONS];
+type ProductFilterStatus = (typeof STATUS_OPTIONS)[keyof typeof STATUS_OPTIONS];
+export type SortOption = (typeof SORT_OPTIONS)[keyof typeof SORT_OPTIONS];
 
 interface ProductFilters {
   searchQuery: string;
@@ -47,7 +47,7 @@ export const useProductFilterStore = create<ProductFilters & FilterActions>(
     setSearchQuery: (query) => set({ searchQuery: query }),
     setStatus: (status) => set({ status }),
     setSortOption: (sort) => set({ sort }),
-    toggleCategory: (category) => 
+    toggleCategory: (category) =>
       set((state) => ({
         categories: state.categories.includes(category)
           ? state.categories.filter((c) => c !== category)

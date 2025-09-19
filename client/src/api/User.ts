@@ -2,42 +2,55 @@ import z from "zod";
 import { validateResponse } from "./validateResponse";
 
 export const UserSchema = z.object({
-  id: z.number(),
-  name: z.string(),
+  id: z.string(), 
+  username: z.string(),
   email: z.string(),
-  phone: z.number(),
-  deliveryAddress: z.string()
 });
 
 export type User = z.infer<typeof UserSchema>;
 
-export async function fetUser(id: string): Promise<User> {
-  const response = await fetch(`/api/user/${id}`);
-  const data = await response.json();
-  return UserSchema.parse(data);
-}
+export const RegisterSchema = z.object({
+  username: z.string().min(2, "Имя слишком короткое"),
+  email: z.string().email("Неверный формат email"),
+  password: z.string().min(6, "Пароль слишком короткий"),
+});
 
-// Вход в аккаунт
+export type RegisterData = z.infer<typeof RegisterSchema>;
 
-export async function login(
-  name: string,
-  email: string,
-  phone: number,
-  deliveryAddress: string
-): Promise<User> {
-  const response = await fetch("/api/register", {
+export const LoginSchema = z.object({
+  email: z.string().email("Неверный формат email"),
+  password: z.string().min(1, "Введите пароль"),
+});
+
+export type LoginData = z.infer<typeof LoginSchema>;
+
+export async function registerUser(data: RegisterData): Promise<User> {
+  const response = await fetch("/api/auth/register", { 
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, phone, deliveryAddress }),
+    body: JSON.stringify(data),
   });
 
-  const data = await validateResponse(response);
-  return UserSchema.parse(data);
+  return UserSchema.parse(await validateResponse(response));
 }
 
-export async function fetchMe(): Promise<User> {
-  const response = await fetch("/api/users/me");
-  const response_1 = await validateResponse(response);
-  const data = await response_1.json();
-  return UserSchema.parse(data);
+export async function loginUser(data: LoginData): Promise<void> {
+  const response = await fetch("/api/auth/login", { 
+    method: "POST", 
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  await validateResponse(response);
+}
+
+export async function fetchCurrentUser(): Promise<User> {
+  const response = await fetch("/api/auth/me");
+  return UserSchema.parse(await validateResponse(response));
+}
+
+export async function logoutUser(): Promise<void> {
+  await fetch("/api/auth/logout", {
+    method: "POST",
+  });
 }
