@@ -7,7 +7,7 @@ import { QuestionPage } from "./pages/QuestionPage";
 import { PRODUCT } from "./api/Products";
 
 const LazyHeaders = lazy(() => import("./layout/Header/Header"))
-const LazyMenu = lazy(() => import("./layout/Menu/Menu"))
+const LazyMenu = lazy(() => import("./layout/HeaderContacts/HeaderContacts"))
 const LazyFooter = lazy(() => import("./layout/Footer/Footer"))
 
 const App = () => {

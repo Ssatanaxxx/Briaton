@@ -5,11 +5,9 @@ export const Modal = memo(() => {
         <div className="modal-overlay" id="cartModal">
             <div className="modal-container cart-modal">
                 <div className="cart-modal__wrapper">
-                    {/* <!-- Левая часть - список товаров --> */}
                     <div className="cart-modal__products">
                         <h3 className="cart-modal__title">Ваша корзина</h3>
                         <div className="cart-items" id="cartItemsList">
-                            {/* <!-- Товары будут добавляться сюда через JS --> */}
                         </div>
                         <div className="cart-total">
                             <span>Итого:</span>
@@ -17,7 +15,6 @@ export const Modal = memo(() => {
                         </div>
                     </div>
 
-                    {/* <!-- Правая часть - выбор оплаты и доставки --> */}
                     <div className="cart-modal__checkout">
                         <div className="checkout-section">
                             <h4 className="checkout-title">Способ оплаты</h4>
