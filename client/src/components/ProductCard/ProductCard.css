@@ -286,3 +286,74 @@
   color: #9BE198;
   font-weight: bold;
 }
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    padding: 0 12px;
+  }
+  
+  .product-card__visual {
+    height: clamp(180px, 45vw, 250px);
+  }
+  
+  .product-card__more {
+    gap: 12px;
+  }
+  
+  .product-card__link {
+    width: 140px;
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 16px;
+  }
+  
+  .product-card {
+    padding: 16px;
+  }
+  
+  .product-card__visual {
+    height: 200px;
+  }
+  
+  .cloud-tooltip__content {
+    width: 260px;
+    right: -20px;
+  }
+  
+  .cloud-tooltip__content::before {
+    right: 30px;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 360px) {
+  .products-grid {
+    padding: 0 12px;
+  }
+  
+  .product-card {
+    padding: 12px;
+  }
+  
+  .product-card__title {
+    font-size: 13px;
+  }
+  
+  .product-card__price {
+    font-size: 16px;
+  }
+  
+  .product-card__old {
+    font-size: 13px;
+  }
+}
