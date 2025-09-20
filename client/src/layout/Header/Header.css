@@ -1,42 +1,121 @@
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 32px);
+}
+
+.header__container {
+  width: 100%;
+}
 
 .header__top {
-  padding: 18px 0;
+  padding: clamp(12px, 2vw, 18px) 0;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid #E9EBF0;
+  gap: clamp(16px, 3vw, 24px);
 }
 
 .header__logo-link {
-  margin: 0 56px 0 0;
+  margin: 0 clamp(20px, 4vw, 56px) 0 0;
+  flex-shrink: 0;
 }
 
 .header__logo-link svg {
-  height: 26px;
-  width: 140px;
+  height: clamp(20px, 4vw, 26px);
+  width: clamp(100px, 20vw, 140px);
 }
 
-.header__catalog-btn {
-  background-color: transparent;
-  border: 1px solid #9BE198;
-  border-radius: 6px;
-  padding: 10px 20px;
+/* Burger Menu Button */
+.burger-menu-button {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  gap: 4px;
+}
+
+.burger-menu-button span {
+  width: 24px;
+  height: 2px;
+  background: #333;
+  transition: all 0.3s ease;
+}
+
+/* Header Bottom */
+.header__bottom {
+  padding: clamp(12px, 2vw, 18px) 0;
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 0 40px 0 0;
+  justify-content: space-between;
+  gap: clamp(16px, 3vw, 24px);
 }
 
-.header__catalog-text {
-  font-size: 14px;
-  line-height: 19.6px;
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 30px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-right: clamp(20px, 10vw, 345px);
+  flex-wrap: wrap;
 }
 
+.header__nav-link {
+  color: #333;
+  text-decoration: none;
+  font-size: clamp(13px, 2vw, 14px);
+  font-weight: 500;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.header__nav-link:hover {
+  color: #6FC76C;
+}
+
+.header__contacts {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 3vw, 20px);
+  flex-shrink: 0;
+}
+
+.header__btn {
+  width: clamp(120px, 22vw, 170px);
+  padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 16px);
+  font-size: clamp(13px, 2vw, 14px);
+}
+
+.header__phone {
+  font-size: clamp(13px, 2vw, 14px);
+  line-height: 1.4;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.header__phone:hover {
+  color: #6FC76C;
+}
+
+/* User List */
 .header__user-list {
   margin: 0 0 0 auto;
   display: flex;
   padding: 0;
   list-style: none;
-  gap: 20px;
+  gap: clamp(12px, 3vw, 20px);
   position: relative;
 }
 
@@ -46,68 +125,66 @@
   padding: 0;
   display: flex;
   align-items: center;
-  font-size: 12px;
-  line-height: 16.8px;
-  gap: 5px;
+  font-size: clamp(11px, 2vw, 12px);
+  line-height: 1.4;
+  gap: 4px;
   position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.header__user-btn:hover {
+  color: #6FC76C;
 }
 
 .header__user-btn svg {
-  height: 24px;
-  width: 24px;
+  height: clamp(20px, 4vw, 24px);
+  width: clamp(20px, 4vw, 24px);
 }
 
 .header__user-count {
-  height: 20px;
-  width: 20px;
+  height: clamp(16px, 3vw, 20px);
+  width: clamp(16px, 3vw, 20px);
   border-radius: 50%;
   background-color: #9BE198;
   position: absolute;
   top: -5px;
-  right: -13px;
+  right: -10px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 2px solid #ffffff;
+  font-size: clamp(10px, 2vw, 12px);
+  color: white;
+  font-weight: 600;
 }
 
-.header__bottom {
-  padding: 18px 0;
+/* Catalog Button */
+.header__catalog-btn {
+  background-color: transparent;
+  border: 1px solid #9BE198;
+  border-radius: 6px;
+  padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 20px);
   display: flex;
   align-items: center;
+  gap: clamp(6px, 1.5vw, 10px);
+  margin: 0 clamp(20px, 4vw, 40px) 0 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.header__nav-list {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  margin-right: 345px;
-
+.header__catalog-btn:hover {
+  background-color: #9BE198;
+  color: white;
 }
 
-.header__contacts {
-  display: flex;
-  align-items: center;
+.header__catalog-text {
+  font-size: clamp(13px, 2vw, 14px);
+  line-height: 1.4;
+  white-space: nowrap;
 }
 
-.header__btn {
-  width: 170px;
-}
-
-.header__phone {
-  font-size: 14px;
-  line-height: 19.6px;
-  transition: color 0.2s;
-}
-
-.header__phone:hover {
-  color: #6FC76C;
-}
-
-/* modal.css */
+/* Modal Styles */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -119,22 +196,501 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: clamp(16px, 4vw, 20px);
 }
 
-.modal-content {
+.modal {
   background: white;
-  padding: 20px;
-  border-radius: 8px;
+  padding: clamp(20px, 4vw, 30px);
+  border-radius: 12px;
   position: relative;
-  min-width: 300px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 12px;
+  right: 12px;
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 24px;
   cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.modal-close:hover {
+  background-color: #f0f0f0;
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 1024px) {
+  .header__nav-list {
+    margin-right: clamp(40px, 8vw, 100px);
+  }
+  
+  .header__user-list {
+    gap: clamp(10px, 2vw, 16px);
+  }
+  
+  .header__catalog-btn {
+    margin: 0 clamp(15px, 3vw, 25px) 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__top {
+    flex-wrap: wrap;
+  }
+  
+  .header__nav-list {
+    display: none;
+  }
+  
+  .header__catalog-btn {
+    display: none;
+  }
+  
+  .burger-menu-button {
+    display: flex;
+  }
+  
+  .header__user-list {
+    margin-left: auto;
+  }
+  
+  .header__bottom {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .header__contacts {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .header__btn {
+    order: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .header__top {
+    justify-content: space-between;
+  }
+  
+  .header__logo-link {
+    margin: 0;
+  }
+  
+  .header__user-list {
+    margin: 0;
+  }
+  
+  .header__bottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .header__btn {
+    width: 100%;
+    order: 1;
+  }
+  
+  .header__contacts {
+    order: 2;
+  }
+  
+  .header__phone {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* Для мобильных устройств */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+  
+  .header__top {
+    padding: 10px 0;
+  }
+  
+  .header__bottom {
+    padding: 12px 0;
+    gap: 12px;
+  }
+  
+  .header__user-list {
+    gap: 10px;
+  }
+  
+  .header__user-btn span {
+    display: none;
+  }
+  
+  .modal {
+    padding: 20px 16px;
+    margin: 0 12px;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 360px) {
+  .header__logo-link svg {
+    width: 90px;
+    height: 18px;
+  }
+  
+  .header__user-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .header__btn {
+    font-size: 12px;
+  }
+  
+  .header__phone {
+    font-size: 12px;
+  }
+}
+
+/* Loading state */
+.suspense-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Burger menu animation */
+.burger-menu-button.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger-menu-button.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu-button.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navMenuApp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navMenn {
+  display: flex;
+  gap: 25px;
+}
+
+.callCenter {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+/* Nav Menu App */
+.navMenuApp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: clamp(16px, 3vw, 25px);
+}
+
+/* Nav Menu */
+.navMenn {
+  display: flex;
+  gap: clamp(12px, 3vw, 25px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.navMenn__item {
+  position: relative;
+}
+
+.navMenn__link {
+  color: #333;
+  text-decoration: none;
+  font-size: clamp(13px, 2vw, 14px);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: clamp(6px, 1.5vw, 8px) 0;
+  display: block;
+  white-space: nowrap;
+  position: relative;
+}
+
+.navMenn__link:hover {
+  color: #6FC76C;
+}
+
+.navMenn__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #6FC76C;
+  transition: width 0.3s ease;
+}
+
+.navMenn__link:hover::after {
+  width: 100%;
+}
+
+/* Call Center */
+.callCenter {
+  display: flex;
+  gap: clamp(12px, 3vw, 25px);
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.callCenter__phone {
+  font-size: clamp(13px, 2vw, 14px);
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.callCenter__phone:hover {
+  color: #6FC76C;
+}
+
+.callCenter__hours {
+  font-size: clamp(11px, 2vw, 12px);
+  color: #666;
+  white-space: nowrap;
+}
+
+.callCenter__button {
+  background: linear-gradient(135deg, #9BE198 0%, #6FC76C 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 16px);
+  font-size: clamp(12px, 2vw, 13px);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.callCenter__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(155, 225, 152, 0.3);
+}
+
+/* Адаптивность для навигации */
+@media (max-width: 1024px) {
+  .navMenuApp {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(12px, 2vw, 20px);
+  }
+  
+  .navMenn {
+    gap: clamp(10px, 2vw, 20px);
+  }
+  
+  .callCenter {
+    width: 100%;
+    justify-content: space-between;
+    gap: clamp(10px, 2vw, 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .navMenuApp {
+    flex-direction: column;
+    gap: clamp(10px, 2vw, 16px);
+  }
+  
+  .navMenn {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: clamp(8px, 2vw, 16px);
+    padding: 8px 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .navMenn::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .navMenn__link {
+    white-space: nowrap;
+    padding: 6px 12px;
+    background: #f8f8f8;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .navMenn__link:hover {
+    background: #6FC76C;
+    color: white;
+  }
+  
+  .navMenn__link::after {
+    display: none;
+  }
+  
+  .callCenter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: clamp(8px, 2vw, 12px);
+  }
+  
+  .callCenter__button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .navMenn {
+    gap: 8px;
+  }
+  
+  .navMenn__link {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  
+  .callCenter__phone {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .callCenter__hours {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navMenuApp {
+    gap: 12px;
+  }
+  
+  .navMenn {
+    gap: 6px;
+  }
+  
+  .navMenn__link {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+  
+  .callCenter {
+    gap: 8px;
+  }
+  
+  .callCenter__phone {
+    font-size: 13px;
+  }
+  
+  .callCenter__button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 360px) {
+  .navMenn {
+    gap: 4px;
+  }
+  
+  .navMenn__link {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+  
+  .callCenter__phone {
+    font-size: 12px;
+  }
+  
+  .callCenter__hours {
+    font-size: 10px;
+  }
+  
+  .callCenter__button {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+}
+
+/* Состояния загрузки */
+.navMenuApp.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.navMenuApp.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #6FC76C;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+  .navMenn__link {
+    color: #ffffff;
+  }
+  
+  .navMenn__link:hover {
+    color: #9BE198;
+  }
+  
+  .callCenter__phone {
+    color: #ffffff;
+  }
+  
+  .callCenter__hours {
+    color: #cccccc;
+  }
 }

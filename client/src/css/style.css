@@ -1589,28 +1589,3 @@ button {
   align-items: center;
   justify-content: center;
 }
-
-/* FAQ */
-
-.header__container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.navMenuApp {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.navMenn {
-  display: flex;
-  gap: 25px;
-}
-
-.callCenter {
-  display: flex;
-  gap: 25px;
-  align-items: center;
-}
