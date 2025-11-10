@@ -1,0 +1,52 @@
+/* Button.css */
+.header__user-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  color: #9be198;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.header__user-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(155, 225, 152, 0.4),
+    0 4px 12px rgba(155, 225, 152, 0.3);
+}
+
+.header__user-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.header__user-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.header__user-btn:disabled:hover {
+  box-shadow: none;
+}
+
+/* Анимация загрузки */
+@keyframes buttonLoading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.header__user-btn.loading {
+  background: linear-gradient(90deg, #9be198 25%, #7cd679 50%, #9be198 75%);
+  background-size: 200% 100%;
+  animation: buttonLoading 1.5s infinite;
+}

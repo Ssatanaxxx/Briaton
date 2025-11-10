@@ -1,0 +1,70 @@
+/* FormField.css */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.form-field__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-field__label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(135deg, #9BE198 0%, #6FC76C 100%);
+  border-radius: 50%;
+}
+
+.form-field__error-text {
+  font-size: 12px;
+  color: #e74c3c;
+  font-weight: 500;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.form-field__error-text::before {
+  content: '⚠';
+  font-size: 10px;
+}
+
+.form-field input {
+  padding: 16px 20px;
+  border: 2px solid #e9ebf0;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: white;
+  font-family: inherit;
+}
+
+.form-field input:focus {
+  outline: none;
+  border-color: #9BE198;
+  box-shadow: 0 0 0 3px rgba(155, 225, 152, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-field input:invalid {
+  border-color: #e74c3c;
+}
+
+.form-field input:disabled {
+  background-color: #f8f9fa;
+  color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.form-field input::placeholder {
+  color: #bdc3c7;
+}

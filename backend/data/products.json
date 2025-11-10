@@ -1,0 +1,176 @@
+{
+  "Products": [
+    {
+      "id": 1,
+      "name": "Хрустальная люстра 'Ornella' A4059PL-4AB",
+      "price": 18990,
+      "originalPrice": 25400,
+      "quantity": 12,
+      "imageUrl": "item-1.png",
+      "category": "ceiling",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 2,
+      "name": "Подвесной светильник 'Milano' с матовым стеклом",
+      "price": 12490,
+      "quantity": 24,
+      "imageUrl": "item-2.png",
+      "category": "ceiling",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 3,
+      "name": "Люстра 'Venice' золотая с 6 рожками",
+      "price": 22450,
+      "originalPrice": 28900,
+      "quantity": 8,
+      "imageUrl": "item-3.png",
+      "category": "ceiling",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 4,
+      "name": "Бра 'Florence' с хлопковым абажуром",
+      "price": 5690,
+      "originalPrice": 7890,
+      "quantity": 36,
+      "imageUrl": "item-4.png",
+      "category": "wall",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 5,
+      "name": "Светильник 'Ravenna' в стиле лофт",
+      "price": 8790,
+      "quantity": 17,
+      "imageUrl": "item-5.png",
+      "category": "wall",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 6,
+      "name": "Торшер 'Barcelona' с сенсорным управлением",
+      "price": 14500,
+      "originalPrice": 18900,
+      "quantity": 9,
+      "imageUrl": "item-6.png",
+      "category": "floor",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 7,
+      "name": "Торшер 'Modena' с USB-разъемами",
+      "price": 12990,
+      "quantity": 14,
+      "imageUrl": "item-7.png",
+      "category": "floor",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 8,
+      "name": "Спот 'Torino' поворотный золотой",
+      "price": 3290,
+      "originalPrice": 4590,
+      "quantity": 42,
+      "imageUrl": "item-8.png",
+      "category": "spot",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 9,
+      "name": "Встраиваемый светильник 'Genova'",
+      "price": 2790,
+      "quantity": 58,
+      "imageUrl": "item-9.png",
+      "category": "spot",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 10,
+      "name": "Комплект 'Toscana' (люстра + 2 бра)",
+      "price": 31990,
+      "originalPrice": 42900,
+      "quantity": 5,
+      "imageUrl": "item-10.png",
+      "category": "bundle",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 11,
+      "name": "Умная лампа 'SmartGlow' RGB",
+      "price": 2490,
+      "originalPrice": 3490,
+      "quantity": 63,
+      "category": "floor",
+      "imageUrl": "item-11.png",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 12,
+      "name": "Люстра Ornella",
+      "price": 2490,
+      "originalPrice": 3490,
+      "quantity": 63,
+      "imageUrl": "item-12.png",
+      "category": "wall",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 13,
+      "name": "Люстра Ornella",
+      "price": 6540,
+      "originalPrice": 14300,
+      "quantity": 158,
+      "imageUrl": "item-13.png",
+      "category": "ceiling",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 14,
+      "name": "Люстра Ornella",
+      "price": 6540,
+      "originalPrice": 14300,
+      "quantity": 158,
+      "imageUrl": "item-14.png",
+      "category": "ceiling",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 15,
+      "name": "Люстра Ornella",
+      "price": 6540,
+      "originalPrice": 14300,
+      "quantity": 158,
+      "imageUrl": "item-15.png",
+      "category": "ceiling",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 16,
+      "name": "Люстра Ornella",
+      "price": 6540,
+      "originalPrice": 14300,
+      "quantity": 158,
+      "imageUrl": "item-16.png",
+      "category": "ceiling",
+      "isPromo": true,
+      "createdAt": "2024-01-15T10:30:00Z"
+    }
+  ]
+}

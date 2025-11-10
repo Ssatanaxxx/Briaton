@@ -1,0 +1,16 @@
+{
+  "carts": [
+    {
+      "id": 1,
+      "productId": 1,
+      "quantity": 2,
+      "addedAt": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 2,
+      "productId": 3,
+      "quantity": 1,
+      "addedAt": "2024-01-15T11:20:00Z"
+    }
+  ]
+}

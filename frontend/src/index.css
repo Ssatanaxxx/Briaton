@@ -1,0 +1,159 @@
+/* Глобальные переменные и настройки */
+:root {
+  font-family: "Noto Sans", "Arial", sans-serif, Inter, system-ui, Avenir,
+    Helvetica, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Цветовая схема из обоих файлов */
+  color: #000000;
+  background-color: #ffffff;
+
+  /* Настройки рендеринга */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  /* Дополнительные переменные */
+  --swiper-theme-color: #007aff;
+}
+
+/* HTML и Body настройки */
+html {
+  margin-right: calc(-1 * (100vw - 100%));
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+/* Корневой элемент приложения */
+#root {
+  margin: 0 auto;
+  padding: 1rem;
+  min-width: 320px;
+  max-width: 1440px;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Глобальные сбросы */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* Основные элементы */
+main {
+  flex-grow: 1;
+}
+
+img {
+  display: block;
+  height: auto;
+  object-fit: cover;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Утилитарные классы */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+}
+
+/* Базовые классы кнопок */
+.btn {
+  padding: 12px;
+  background-color: #9be198;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.6px;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn--secondary {
+  background-color: transparent;
+  border: 1px solid #91d6ac;
+}
+
+.btn--big {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25.2px;
+  padding: 15px 12px;
+}
+
+.btn--icon {
+  gap: 16px;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  #root {
+    padding: 0.5rem;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 0.25rem;
+  }
+
+  body {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}

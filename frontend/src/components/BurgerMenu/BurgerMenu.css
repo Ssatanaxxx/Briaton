@@ -1,0 +1,80 @@
+.burger-button {
+  position: relative;
+  z-index: 100;
+  width: 40px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.burger-line {
+  height: 3px;
+  width: 100%;
+  background: #333;
+  transition: all 0.3s ease;
+}
+
+.burger-button.open .burger-line:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.burger-button.open .burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-button.open .burger-line:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+.burger-sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  max-width: 80%;
+  height: 100vh;
+  background: white;
+  z-index: 90;
+  transition: left 0.3s ease;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.burger-sidebar.open {
+  left: 0;
+}
+
+.burger-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 80;
+}
+
+.burger-nav {
+  padding: 80px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  list-style-type: none;
+}
+
+.burger-nav a {
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.burger-nav a:hover {
+  background: #f0f0f0;
+}

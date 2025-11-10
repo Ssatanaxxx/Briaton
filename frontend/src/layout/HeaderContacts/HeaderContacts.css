@@ -1,0 +1,57 @@
+.callCenter {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.callCenter {
+  display: flex;
+  gap: clamp(12px, 3vw, 25px);
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.callCenter__phone {
+  font-size: clamp(13px, 2vw, 14px);
+  font-weight: 500;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.callCenter__phone:hover {
+  color: #6fc76c;
+}
+
+.callCenter__hours {
+  font-size: clamp(11px, 2vw, 12px);
+  color: #666;
+  white-space: nowrap;
+}
+
+.callCenter__button {
+  background: linear-gradient(135deg, #9be198 0%, #6fc76c 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 16px);
+  font-size: clamp(12px, 2vw, 13px);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.callCenter__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(155, 225, 152, 0.3);
+}
+
+
+.header__btn {
+  width: clamp(120px, 22vw, 170px);
+  padding: clamp(8px, 1.5vw, 10px) clamp(12px, 2vw, 16px);
+  font-size: clamp(13px, 2vw, 14px);
+}
+

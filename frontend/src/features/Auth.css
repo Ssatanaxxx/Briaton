@@ -1,0 +1,119 @@
+/* AuthModal.css */
+.auth-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.auth-modal-overlay--active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.auth-modal {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 24px;
+  padding: 40px;
+  width: 90%;
+  max-width: 440px;
+  box-shadow: 
+    0 20px 80px rgba(0, 0, 0, 0.15),
+    0 10px 40px rgba(155, 225, 152, 0.1);
+  position: relative;
+  transform: translateY(30px) scale(0.95);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.auth-modal-overlay--active .auth-modal {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.auth-modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #9BE198 0%, #6FC76C 100%);
+  border: 2px solid white;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(155, 225, 152, 0.3);
+}
+
+.auth-modal__close:hover {
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 6px 20px rgba(155, 225, 152, 0.5);
+}
+
+.auth-modal__header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.auth-modal__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 8px 0;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.auth-modal__subtitle {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .auth-modal {
+    padding: 30px 24px;
+    margin: 20px;
+    width: calc(100% - 40px);
+  }
+  
+  .auth-modal__title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-modal {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+  
+  .auth-modal__title {
+    font-size: 22px;
+  }
+  
+  .auth-modal__close {
+    top: 15px;
+    right: 15px;
+    width: 28px;
+    height: 28px;
+  }
+}

@@ -1,0 +1,518 @@
+openapi: 3.0.0
+info:
+  title: Магазин люстр и светильников
+  version: 1.0.0
+  description: API для интернет-магазина осветительных приборов
+servers:
+  - url: http://localhost:8080/api/v1
+    description: Dev server
+
+tags:
+  - name: Products
+    description: Управление товарами
+  - name: Categories
+    description: Категории товаров
+  - name: Locations
+    description: Города доставки
+  - name: FAQ
+    description: Частые вопросы
+  - name: Auth
+    description: Регистрация пользователей
+  - name: Orders
+    description: Заказы
+  - name: Cart
+    description: Корзина
+
+paths:
+  /products:
+    get:
+      summary: Получить все товары
+      tags:
+        - Products
+      operationId: getAllProducts
+      parameters:
+        - name: category
+          in: query
+          required: false
+          description: Фильтр по категории
+          schema:
+            type: string
+            enum: [ceiling, wall, floor, spot, bundle]
+        - name: limit
+          in: query
+          required: false
+          description: Лимит товаров
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+      responses:
+        "200":
+          description: Успешный ответ со списком товаров
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Product"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/ServerError"
+        default:
+          $ref: "#/components/responses/DefaultError"
+
+  /products/{id}:
+    get:
+      summary: Получить товар по ID
+      tags:
+        - Products
+      operationId: getProductById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID товара
+          schema:
+            type: integer
+            example: 1
+      responses:
+        "200":
+          description: Успешный ответ с данными товара
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Product"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/ServerError"
+        default:
+          $ref: "#/components/responses/DefaultError"
+
+  /categories:
+    get:
+      summary: Получить все категории
+      tags:
+        - Categories
+      operationId: getAllCategories
+      responses:
+        "200":
+          description: Успешный ответ со списком категорий
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Category"
+        "500":
+          $ref: "#/components/responses/ServerError"
+        default:
+          $ref: "#/components/responses/DefaultError"
+
+  /locations:
+    get:
+      summary: Получить все города доставки
+      tags:
+        - Locations
+      operationId: getAllLocations
+      responses:
+        "200":
+          description: Успешный ответ со списком городов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Location"
+        "500":
+          $ref: "#/components/responses/ServerError"
+        default:
+          $ref: "#/components/responses/DefaultError"
+
+  /faq:
+    get:
+      summary: Получить частые вопросы
+      tags:
+        - FAQ
+      operationId: getAllFAQ
+      responses:
+        "200":
+          description: Успешный ответ со списком вопросов и ответов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FAQ"
+        "500":
+          $ref: "#/components/responses/ServerError"
+        default:
+          $ref: "#/components/responses/DefaultError"
+
+  /auth/register:
+    post:
+      summary: Регистрация пользователя
+      tags:
+        - Auth
+      operationId: registerUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserRegister"
+      responses:
+        "201":
+          description: Пользователь успешно зарегистрирован
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/ServerError"
+
+  /orders:
+    post:
+      summary: Создать заказ
+      tags:
+        - Orders
+      operationId: createOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OrderCreate"
+      responses:
+        "201":
+          description: Заказ успешно создан
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Order"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/ServerError"
+
+  /cart:
+    get:
+      summary: Получить корзину
+      tags:
+        - Cart
+      operationId: getCart
+      responses:
+        "200":
+          description: Успешный ответ с данными корзины
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CartItem"
+        "500":
+          $ref: "#components/responses/ServerError"
+    post:
+      summary: Добавить товар в корзину
+      tags:
+        - Cart
+      operationId: addToCart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CartItem"
+      responses:
+        "201":
+          description: Товар добавлен в корзину
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/ServerError"
+
+components:
+  schemas:
+    Product:
+      type: object
+      required:
+        - id
+        - name
+        - price
+        - quantity
+        - imageUrl
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "Хрустальная люстра 'Ornella' A4059PL-4AB"
+        price:
+          type: number
+          format: float
+          example: 18990.00
+        originalPrice:
+          type: number
+          format: float
+          example: 25400.00
+        quantity:
+          type: integer
+          example: 12
+        imageUrl:
+          type: string
+          example: "item-1.png"
+        isPromo:
+          type: boolean
+          example: true
+        category:
+          type: string
+          enum:
+            - ceiling
+            - wall
+            - floor
+            - spot
+            - bundle
+          example: "ceiling"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2024-01-15T10:30:00Z"
+
+    Category:
+      type: object
+      required:
+        - id
+        - title
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: "Люстры — роскошные, классические и современные, для гостиных, спален и столовых."
+
+    Location:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: integer
+          example: 0
+        name:
+          type: string
+          example: "Москва"
+
+    FAQ:
+      type: object
+      required:
+        - id
+        - question
+        - answer
+      properties:
+        id:
+          type: integer
+          example: 1
+        question:
+          type: string
+          example: "Вы работаете с НДС?"
+        answer:
+          type: array
+          items:
+            type: string
+          example:
+            [
+              "Да, наша компания является плательщиком НДС. Все товары в нашем магазине продаются с учетом НДС 20%, что отражено в ценах на сайте.",
+              "По запросу мы предоставляем полный пакет закрывающих документов: счет-фактуру, УПД или товарную накладную.",
+            ]
+
+    User:
+      type: object
+      required:
+        - id
+        - fullName
+        - phone
+        - address
+      properties:
+        id:
+          type: integer
+          example: 1
+        fullName:
+          type: string
+          example: "Иванов Иван Иванович"
+        phone:
+          type: string
+          example: "+7 999 123-45-67"
+        address:
+          type: string
+          example: "г. Москва, ул. Примерная, д. 123"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2024-01-15T10:30:00Z"
+
+    UserRegister:
+      type: object
+      required:
+        - fullName
+        - phone
+        - address
+      properties:
+        fullName:
+          type: string
+          example: "Иванов Иван Иванович"
+        phone:
+          type: string
+          example: "+7 999 123-45-67"
+        address:
+          type: string
+          example: "г. Москва, ул. Примерная, д. 123"
+
+    Order:
+      type: object
+      required:
+        - id
+        - userId
+        - items
+        - totalPrice
+        - status
+      properties:
+        id:
+          type: integer
+          example: 1
+        userId:
+          type: integer
+          example: 1
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/OrderItem"
+        totalPrice:
+          type: number
+          example: 45980.00
+        status:
+          type: string
+          enum: [pending, confirmed, delivered, cancelled]
+          example: "pending"
+        createdAt:
+          type: string
+          format: date-time
+          example: "2024-01-15T10:30:00Z"
+
+    OrderItem:
+      type: object
+      required:
+        - productId
+        - quantity
+        - price
+      properties:
+        productId:
+          type: integer
+          example: 1
+        quantity:
+          type: integer
+          example: 2
+        price:
+          type: number
+          example: 18990.00
+
+    OrderCreate:
+      type: object
+      required:
+        - userId
+        - items
+      properties:
+        userId:
+          type: integer
+          example: 1
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/OrderItem"
+
+    CartItem:
+      type: object
+      required:
+        - id
+        - productId
+        - quantity
+      properties:
+        id:
+          type: integer
+          example: 1
+        productId:
+          type: integer
+          example: 1
+        quantity:
+          type: integer
+          example: 2
+        addedAt:
+          type: string
+          format: date-time
+          example: "2024-01-15T10:30:00Z"
+
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          example: 404
+        message:
+          type: string
+          example: "Товар не найден"
+        details:
+          type: string
+          example: "Дополнительная информация об ошибке"
+
+  responses:
+    BadRequest:
+      description: Неверный запрос
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            code: 400
+            message: "Неверные параметры запроса"
+            details: "Поле 'name' обязательно для заполнения"
+
+    NotFound:
+      description: Ресурс не найден
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            code: 404
+            message: "Товар не найден"
+            details: "Товар с ID 999 не существует"
+
+    ServerError:
+      description: Внутренняя ошибка сервера
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            code: 500
+            message: "Внутренняя ошибка сервера"
+            details: "Произошла непредвиденная ошибка"
+
+    DefaultError:
+      description: Неизвестная ошибка
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+          example:
+            code: 520
+            message: "Неизвестная ошибка"
+            details: "Произошла непредвиденная ошибка"
