@@ -3,11 +3,7 @@ import "./PromoProductsPage.css";
 import { useEffect, useState } from "react";
 import { Product, getProducts } from "../../api/Products";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import {
-  IconArrowNext,
-  IconArrowPrev,
-} from "../../components/UI-Kit/Icons/Icons";
-
+import { BsArrowRight, BsArrowLeft  } from "react-icons/bs";
 export function PromoProductsPage() {
   const [promoProducts, setPromoProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -55,14 +51,14 @@ export function PromoProductsPage() {
               onClick={prevSlide}
               type="button"
             >
-              <IconArrowPrev width={41} height={9} aria-hidden="true" />
+              <BsArrowLeft width={41} height={9} aria-hidden="true" />
             </button>
             <button
               className="day-products__navigation-btn day-products__navigation-btn--next"
               onClick={nextSlide}
               type="button"
             >
-              <IconArrowNext width={41} height={9} aria-hidden="true" />
+              <BsArrowRight width={41} height={9} aria-hidden="true" />
             </button>
           </div>
         )}

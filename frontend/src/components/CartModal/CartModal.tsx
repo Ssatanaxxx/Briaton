@@ -2,6 +2,11 @@ import { memo, useState, useEffect } from "react";
 import { useCartStore } from "../../store/cartStore";
 import { Product, getProduct } from "../../api/Products";
 import "./CartModal.css";
+import {
+  paymentOptions,
+  deliveryOptions,
+} from "../../constnat/constant.cartModal";
+import { UIInputFieldRadio } from "../UI-Kit/UIInputFieldRadio/UIInputFieldRadio";
 
 interface CartModalProps {
   onClose: () => void;
@@ -17,7 +22,7 @@ export const CartModal = memo(({ onClose }: CartModalProps) => {
   const [delivery, setDelivery] = useState("courier");
   const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   const { items, removeItem } = useCartStore();
 
   useEffect(() => {
@@ -31,7 +36,7 @@ export const CartModal = memo(({ onClose }: CartModalProps) => {
               return {
                 ...product,
                 cartQuantity: item.quantity,
-                cartItemId: item.id
+                cartItemId: item.id,
               };
             } catch (error) {
               console.error(`Ошибка загрузки товара ${item.productId}:`, error);
@@ -39,7 +44,7 @@ export const CartModal = memo(({ onClose }: CartModalProps) => {
             }
           })
         );
-        
+
         setCartProducts(products.filter(Boolean) as CartProduct[]);
       } catch (error) {
         console.error("Ошибка загрузки корзины:", error);
@@ -122,11 +127,13 @@ export const CartModal = memo(({ onClose }: CartModalProps) => {
                     <div className="cart-item__info">
                       <h4 className="cart-item__name">{item.name}</h4>
                       <div className="cart-item__price">
-                        {item.price.toLocaleString("ru-RU")} ₽ × {item.cartQuantity}
+                        {item.price.toLocaleString("ru-RU")} ₽ ×{" "}
+                        {item.cartQuantity}
                       </div>
                     </div>
                     <div className="cart-item__total">
-                      {(item.price * item.cartQuantity).toLocaleString("ru-RU")} ₽
+                      {(item.price * item.cartQuantity).toLocaleString("ru-RU")}{" "}
+                      ₽
                     </div>
                     <button
                       className="cart-item__remove"
@@ -152,62 +159,32 @@ export const CartModal = memo(({ onClose }: CartModalProps) => {
               <div className="checkout-section">
                 <h4 className="checkout-title">Способ оплаты</h4>
                 <div className="radio-group">
-                  <label className="radio-option">
-                    <input
-                      type="radio"
+                  {paymentOptions.map((option) => (
+                    <UIInputFieldRadio
+                      key={option.id}
+                      id={option.id}
+                      value={option.value}
+                      checked={payment === option.value}
                       name="payment"
-                      value="card"
-                      checked={payment === "card"}
                       onChange={(e) => setPayment(e.target.value)}
                     />
-                    <span>Картой онлайн</span>
-                  </label>
-                  <label className="radio-option">
-                    <input
-                      type="radio"
-                      name="payment"
-                      value="transfer"
-                      checked={payment === "transfer"}
-                      onChange={(e) => setPayment(e.target.value)}
-                    />
-                    <span>Банковский перевод</span>
-                  </label>
-                  <label className="radio-option">
-                    <input
-                      type="radio"
-                      name="payment"
-                      value="sbp"
-                      checked={payment === "sbp"}
-                      onChange={(e) => setPayment(e.target.value)}
-                    />
-                    <span>СБП</span>
-                  </label>
+                  ))}
                 </div>
               </div>
 
               <div className="checkout-section">
                 <h4 className="checkout-title">Способ получения</h4>
                 <div className="radio-group">
-                  <label className="radio-option">
-                    <input
-                      type="radio"
+                  {deliveryOptions.map((option) => (
+                    <UIInputFieldRadio
+                      key={option.id}
+                      id={option.id}
+                      value={option.value}
+                      checked={delivery === option.value}
                       name="delivery"
-                      value="courier"
-                      checked={delivery === "courier"}
                       onChange={(e) => setDelivery(e.target.value)}
                     />
-                    <span>Доставка курьером</span>
-                  </label>
-                  <label className="radio-option">
-                    <input
-                      type="radio"
-                      name="delivery"
-                      value="pickup"
-                      checked={delivery === "pickup"}
-                      onChange={(e) => setDelivery(e.target.value)}
-                    />
-                    <span>Самовывоз из магазина</span>
-                  </label>
+                  ))}
                 </div>
               </div>
 

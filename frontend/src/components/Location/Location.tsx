@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Location as LocationType, fetchCities } from "../../api/Location";
 import "./Location.css";
-import { IconArrowBottom, IconLocation } from "../UI-Kit/Icons/Icons";
-
+import { IoIosArrowDown } from "react-icons/io";
+import { LuMapPinMinus} from "react-icons/lu";
 const Location = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentCity, setCurrentCity] = useState("Москва");
@@ -31,7 +31,7 @@ const Location = () => {
 
   return (
     <div className="header__location location">
-      <IconLocation width={24} height={24} aria-hidden="true" />
+      <LuMapPinMinus className="header__location-icon" width={24} height={24} aria-hidden="true" />
       <span className="location__text">Ваш город:</span>
       <div className="location__wrapper">
         <button
@@ -41,7 +41,7 @@ const Location = () => {
           aria-expanded={isOpen}
         >
           <span className="current-city">{currentCity}</span>
-          <IconArrowBottom
+          <IoIosArrowDown
             width={9}
             height={6}
             aria-hidden="true"

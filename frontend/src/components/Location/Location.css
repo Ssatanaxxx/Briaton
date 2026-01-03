@@ -12,6 +12,11 @@
   transition: color 0.2s ease-out 0.2s;
 }
 
+.header__location-icon {
+  width: 24px;
+  height: 24px;
+}
+
 .header__nav-link:hover {
   color: #6fc76c;
 }

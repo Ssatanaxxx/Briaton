@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { useProductFilterStore } from "../../hooks/useProductFilterStore";
-import { IconFilter, IconCheck } from "../UI-Kit/Icons/Icons";
+import { LuFilterX } from "react-icons/lu";
 import "./ProductFilters.css";
 
 const STATUS_OPTIONS = [
@@ -38,7 +38,7 @@ export const ProductFilters = memo(() => {
           type="button"
           onClick={resetFilters}
         >
-          <IconFilter width={20} height={20} aria-hidden="true" />
+          <LuFilterX width={20} height={20} aria-hidden="true" />
           <span>Сбросить всё</span>
         </button>
       </div>
@@ -78,12 +78,6 @@ export const ProductFilters = memo(() => {
                 <span className="product-filters__checkbox-text">
                   {category.label}
                 </span>
-                <IconCheck
-                  className="product-filters__checkbox-icon"
-                  width="10"
-                  height="10"
-                  aria-hidden="true"
-                />
               </label>
             </div>
           ))}

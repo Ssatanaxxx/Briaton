@@ -2,7 +2,8 @@ import { memo, useMemo, useState } from "react";
 import { Product } from "../../api/Products";
 import { useCartStore } from "../../store/cartStore";
 import "./ProductCard.css";
-import { IconBusket, IconI } from "../UI-Kit/Icons/Icons";
+import { TiInfoLarge } from "react-icons/ti";
+import { FaOpencart } from "react-icons/fa6";
 
 interface ProductCardProps {
   product: Product;
@@ -60,8 +61,7 @@ const ProductCard = memo(({ product }: ProductCardProps) => {
             <span className="btn__text">
               {isAdding ? "Добавляем..." : "В корзину"}
             </span>
-            <IconBusket
-              loading="lazy"
+            <FaOpencart
               width={24}
               height={24}
               aria-hidden="true"
@@ -99,8 +99,7 @@ const ProductCard = memo(({ product }: ProductCardProps) => {
             className="cloud-tooltip__btn"
             aria-label="Информация о товаре"
           >
-            <IconI
-              loading="lazy"
+            <TiInfoLarge
               className="cloud-tooltip__icon"
               width={16}
               height={16}

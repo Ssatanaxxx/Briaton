@@ -4,8 +4,34 @@
   padding: 24px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   border: 1px solid #e9ebf0;
+
+  /* Добавь это для sticky */
+  position: sticky;
+  top: 20px; /* 🔥 ОБЯЗАТЕЛЬНО - отступ от верха */
+  max-height: calc(100vh - 40px); /* 🔥 Ограничиваем высоту */
+  overflow-y: auto; /* 🔥 Включаем скролл если контент не помещается */
 }
 
+/* Добавь стили для скроллбара (опционально) */
+.product-filters::-webkit-scrollbar {
+  width: 4px;
+}
+
+.product-filters::-webkit-scrollbar-track {
+  background: #f8f9fa;
+  border-radius: 2px;
+}
+
+.product-filters::-webkit-scrollbar-thumb {
+  background: #9be198;
+  border-radius: 2px;
+}
+
+.product-filters::-webkit-scrollbar-thumb:hover {
+  background: #6fc76c;
+}
+
+/* Остальные стили без изменений */
 .product-filters__header {
   display: flex;
   justify-content: space-between;
@@ -230,6 +256,10 @@
   .product-filters {
     padding: 20px;
     margin-bottom: 20px;
+    /* На мобильных убираем sticky */
+    position: static;
+    max-height: none;
+    overflow-y: visible;
   }
 
   .product-filters__header {
@@ -275,7 +305,6 @@
   }
 }
 
-/* Стили для визуально скрытых элементов */
 .visually-hidden {
   position: absolute;
   width: 1px;

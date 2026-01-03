@@ -110,6 +110,8 @@
 }
 
 .main-page__item-text {
+  margin: 0;
+  margin-bottom: 10px;
   font-size: 15px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;

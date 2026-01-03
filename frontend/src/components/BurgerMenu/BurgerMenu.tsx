@@ -1,4 +1,4 @@
-import { memo, useEffect, useCallback } from "react";
+import { memo, useEffect} from "react";
 import "./BurgerMenu.css";
 
 type Props = {
@@ -21,33 +21,26 @@ const menuItems = [
 ];
 
 const BurgerMenu = memo(({ isOpen, onClose }: Props) => {
-  useEffect(() => {
-    if (typeof document !== "undefined") {
-      document.body.style.overflow = isOpen ? "hidden" : "";
-      return () => {
-        document.body.style.overflow = "";
-      };
-    }
-  }, [isOpen]);
 
-  const handleLinkClick = useCallback(
-    (e: React.MouseEvent) => {
+  const handleLinkClick = (e: React.MouseEvent) => {
       e.preventDefault();
       onClose();
-    },
-    [onClose]
-  );
+  };
 
   useEffect(() => {
+    if (!isOpen) return;
+
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
 
-    if (isOpen) {
-      document.addEventListener("keydown", handleEscape);
-    }
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleEscape);
 
-    return () => document.removeEventListener("keydown", handleEscape);
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", handleEscape);
+    };
   }, [isOpen, onClose]);
 
   return (
@@ -68,7 +61,6 @@ const BurgerMenu = memo(({ isOpen, onClose }: Props) => {
             <li key={item} className="burger-nav__item">
               {" "}
               <a
-                href="#"
                 onClick={handleLinkClick}
                 className="burger-nav__link"
               >

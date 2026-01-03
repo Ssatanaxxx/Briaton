@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import "./AuthButton.css"
-import { IconUser } from "../Icons/Icons";
+import { FaRegUser } from "react-icons/fa";
 interface ButtonProps {
     type?: "button" | "submit" | "reset";
     title: string;
@@ -25,7 +25,7 @@ const Button = ({
             onClick={onClick}
         >
             {isLoading ? "Загрузка..." : children}
-            <IconUser />
+            <FaRegUser />
         </button>
     );
 };

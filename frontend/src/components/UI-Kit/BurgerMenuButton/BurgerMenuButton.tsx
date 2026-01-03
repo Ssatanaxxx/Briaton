@@ -1,6 +1,6 @@
 import { memo, useCallback } from "react";
 import "./BurgerMenu.css";
-import { IconMenu } from "../Icons/Icons";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 type Props = {
   onClick: () => void;
@@ -22,7 +22,7 @@ const BurgerMenuButton = memo(({ onClick, isMenuOpen = false }: Props) => {
       aria-expanded={isMenuOpen}
       aria-controls="burger-menu"
     >
-      <IconMenu aria-hidden="true" />
+      <RxHamburgerMenu aria-hidden="true" />
       <span className="header__catalog-text">Каталог</span>
     </button>
   );

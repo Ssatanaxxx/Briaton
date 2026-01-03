@@ -19,6 +19,15 @@
   transition: all 0.3s ease;
 }
 
+.burger-nav__item {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.burger-nav__item:last-child {
+  margin-bottom: 0;
+}
+
 .burger-button.open .burger-line:nth-child(1) {
   transform: translateY(11px) rotate(45deg);
 }
@@ -59,7 +68,7 @@
 }
 
 .burger-nav {
-  padding: 80px 20px 20px;
+  padding: 60px 20px 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
