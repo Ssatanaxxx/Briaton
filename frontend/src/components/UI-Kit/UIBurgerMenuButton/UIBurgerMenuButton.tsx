@@ -1,5 +1,4 @@
-import { memo, useCallback } from "react";
-import "./BurgerMenu.css";
+import "./UIBurgerMenuButton.css";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 type Props = {
@@ -7,17 +6,12 @@ type Props = {
   isMenuOpen?: boolean;
 };
 
-const BurgerMenuButton = memo(({ onClick, isMenuOpen = false }: Props) => {
-  
-  const handleClick = useCallback(() => {
-    onClick();
-  }, [onClick]);
-
+const UIBurgerMenuButton = ({ onClick, isMenuOpen = false }: Props) => {
   return (
     <button
       className="header__catalog-btn"
       type="button"
-      onClick={handleClick}
+      onClick={onClick}
       aria-label="Открыть меню"
       aria-expanded={isMenuOpen}
       aria-controls="burger-menu"
@@ -26,6 +20,6 @@ const BurgerMenuButton = memo(({ onClick, isMenuOpen = false }: Props) => {
       <span className="header__catalog-text">Каталог</span>
     </button>
   );
-});
+};
 
-export default BurgerMenuButton;
+export default UIBurgerMenuButton;

@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../../api/queryClient";
 import { FormEventHandler, memo, useState } from "react";
-import Button from "../UI-Kit/AuthButton/AuthButton";
+import Button from "../UI-Kit/UIAuthButton/UIAuthButton";
 import { UIFormField } from "../UI-Kit/UIFormField/UIFormField";
 import {
   registerUser,
@@ -58,7 +58,11 @@ export const RegisterForm = memo(() => {
 
   return (
     <form className="register-form" onSubmit={handleSubmit}>
-      <UIFormField label="ФИО" errorMessage={errors.fullName} htmlFor="fullName">
+      <UIFormField
+        label="ФИО"
+        errorMessage={errors.fullName}
+        htmlFor="fullName"
+      >
         <input
           id="fullName"
           name="fullName"
@@ -80,7 +84,11 @@ export const RegisterForm = memo(() => {
         />
       </UIFormField>
 
-      <UIFormField label="Адрес" errorMessage={errors.address} htmlFor="address">
+      <UIFormField
+        label="Адрес"
+        errorMessage={errors.address}
+        htmlFor="address"
+      >
         <input
           id="address"
           name="address"

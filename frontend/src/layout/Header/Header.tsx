@@ -1,8 +1,9 @@
 import { lazy, Suspense, useState } from "react";
-import BurgerMenuButton from "../../components/UI-Kit/BurgerMenuButton/BurgerMenuButton";
+import BurgerMenuButton from "../../components/UI-Kit/UIBurgerMenuButton/UIBurgerMenuButton";
 import "./Header.css";
 import { RegisterForm } from "../../components/RegisterForm/RegisterForm";
 import { IconLogo } from "../../components/UI-Kit/Icons/Icons";
+import AuthModal from "../../features/AuthModal";
 
 const LazyBurgerMenu = lazy(
   () => import("../../components/BurgerMenu/BurgerMenu")
@@ -15,7 +16,7 @@ const Header: React.FC = () => {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   return (
-    <div className="container">
+    <header className="container">
       <div className="header__container">
         <Suspense fallback={<div>Loading...</div>}>
           <div className="header__top">
@@ -43,22 +44,18 @@ const Header: React.FC = () => {
             </button>
 
             {isAuthModalOpen && (
-              <div className="modal-overlay auth-modal-overlay">
-                <div className="modal auth-modal">
-                  <button
-                    className="modal-close"
-                    onClick={() => setIsAuthModalOpen(false)}
-                  >
-                    ×
-                  </button>
-                  <RegisterForm />
-                </div>
-              </div>
+              <AuthModal
+                isOpen={isAuthModalOpen}
+                onClose={() => setIsAuthModalOpen(false)}
+                title="Регистрация"
+              >
+                <RegisterForm />
+              </AuthModal>
             )}
           </div>
         </Suspense>
       </div>
-    </div>
+    </header>
   );
 };
 

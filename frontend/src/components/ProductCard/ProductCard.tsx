@@ -4,6 +4,7 @@ import { useCartStore } from "../../store/cartStore";
 import "./ProductCard.css";
 import { TiInfoLarge } from "react-icons/ti";
 import { FaOpencart } from "react-icons/fa6";
+import UITooltip from "../UI-Kit/UITooltip/UITooltip";
 
 interface ProductCardProps {
   product: Product;
@@ -61,11 +62,7 @@ const ProductCard = memo(({ product }: ProductCardProps) => {
             <span className="btn__text">
               {isAdding ? "Добавляем..." : "В корзину"}
             </span>
-            <FaOpencart
-              width={24}
-              height={24}
-              aria-hidden="true"
-            />
+            <FaOpencart width={24} height={24} aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -94,10 +91,18 @@ const ProductCard = memo(({ product }: ProductCardProps) => {
           </span>
         </div>
 
-        <div className="product-card__cloud-tooltip">
+        <UITooltip
+          content={
+            <div>
+              <p>В наличии: {product.quantity} шт.</p>
+              <p>Бесплатная доставка</p>
+              <p>Гарантия 2 года</p>
+            </div>
+          }
+        >
           <button
-            className="cloud-tooltip__btn"
             aria-label="Информация о товаре"
+            className="cloud-tooltip__btn"
           >
             <TiInfoLarge
               className="cloud-tooltip__icon"
@@ -106,18 +111,7 @@ const ProductCard = memo(({ product }: ProductCardProps) => {
               aria-hidden="true"
             />
           </button>
-
-          <div className="cloud-tooltip__content">
-            <div className="cloud-tooltip__header">
-              <h4>Информация о товаре</h4>
-            </div>
-            <div className="cloud-tooltip__body">
-              <p>В наличии: {product.quantity} шт.</p>
-              <p>Бесплатная доставка</p>
-              <p>Гарантия 2 года</p>
-            </div>
-          </div>
-        </div>
+        </UITooltip>
       </div>
     </div>
   );

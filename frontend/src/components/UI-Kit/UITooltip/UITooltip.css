@@ -1,0 +1,117 @@
+/* Wrapper */
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+  z-index: 100;
+}
+
+/* Кнопка-иконка внутри тултипа */
+.tooltip-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #9be198 0%, #6fc76c 100%);
+  border: 2px solid white;
+  box-shadow: 0 4px 12px rgba(155, 225, 152, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.tooltip-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(155, 225, 152, 0.5);
+}
+
+.tooltip-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: white;
+}
+
+/* Контент тултипа */
+.tooltip-content {
+  position: absolute;
+  bottom: 0;
+  right: 100%; /* тултип справа от кнопки */
+  margin-right: 12px; /* небольшой отступ */
+  transform: translateY(0) scale(0.95);
+  background: #fff;
+  color: #333;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  width: 240px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Показываем тултип при hover или focus */
+.tooltip-wrapper:hover .tooltip-content,
+.tooltip-wrapper:focus-within .tooltip-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Стрелка */
+.tooltip-content::before {
+  content: "";
+  position: absolute;
+  bottom: 12px; /* посередине вертикально */
+  left: 100%; /* справа от тултипа */
+  transform: rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Заголовок */
+.tooltip-content h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Текст */
+.tooltip-content p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 14px;
+}
+
+.tooltip-content p::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #9be198;
+  font-weight: bold;
+}
+
+/* Адаптив */
+@media (max-width: 480px) {
+  .tooltip-content {
+    width: 200px;
+    right: 100%;
+    margin-right: 8px;
+  }
+  .tooltip-content p {
+    font-size: 13px;
+  }
+  .tooltip-content h4 {
+    font-size: 14px;
+  }
+}

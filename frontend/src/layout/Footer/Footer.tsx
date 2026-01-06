@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div id="call" className="footer__info">
-          <button className="footer__btn btn">Свяжитесь с нами</button>
+          <button className="footer__btn btn" type="button">Свяжитесь с нами</button>
           <ul className="footer__cards">
             <li className="footer__card">
               <IconFooterVisa

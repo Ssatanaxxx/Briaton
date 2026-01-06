@@ -4,8 +4,6 @@ import "./FAQPage.css";
 
 export const FAQPage = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentAnswer, setCurrentAnswer] = useState<string[]>([]);
   const [faqItems, setFaqItems] = useState<FAQ[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -26,15 +24,8 @@ export const FAQPage = () => {
     loadFAQ();
   }, []);
 
-  const toggleModal = (index: number) => {
-    setActiveIndex(index);
-    setCurrentAnswer(faqItems[index].answer);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setActiveIndex(null);
+  const toggleAccordion = (index: number) => {
+    setActiveIndex(activeIndex === index ? null : index);
   };
 
   if (loading) return <div className="loading">Загрузка FAQ...</div>;
@@ -44,41 +35,42 @@ export const FAQPage = () => {
     <div className="container">
       <div className="faq__wrapper">
         <h2 className="faq__title">Ответы на частые вопросы от покупателей</h2>
-        <div className="faq__accordion accordion">
+        <div className="accordion">
           {faqItems.map((item, index) => (
             <div
+              key={item.id}
               className={`accordion__element ${
                 activeIndex === index ? "active" : ""
               }`}
-              key={item.id}
             >
               <button
                 className="accordion__btn"
                 type="button"
-                onClick={() => toggleModal(index)}
+                onClick={() => toggleAccordion(index)}
+                aria-expanded={activeIndex === index}
+                aria-controls={`faq-answer-${index}`}
+                id={`faq-question-${index}`}
               >
                 <span className="accordion__btn-text">{item.question}</span>
                 <span className="accordion__btn-icon">+</span>
               </button>
-            </div>
-          ))}
-        </div>
-
-        {isModalOpen && activeIndex !== null && (
-          <div className="modal-overlay" onClick={closeModal}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" onClick={closeModal}>
-                ×
-              </button>
-              <h3 className="modal-title">{faqItems[activeIndex].question}</h3>
-              <div className="modal-body">
-                {currentAnswer.map((text, i) => (
+              <div
+                id={`faq-answer-${index}`}
+                className="accordion__content"
+                style={{
+                  maxHeight:
+                    activeIndex === index
+                      ? `${item.answer.length * 3.5}em`
+                      : "0",
+                }}
+              >
+                {item.answer.map((text, i) => (
                   <p key={i}>{text}</p>
                 ))}
               </div>
             </div>
-          </div>
-        )}
+          ))}
+        </div>
       </div>
     </div>
   );

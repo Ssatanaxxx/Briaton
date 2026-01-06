@@ -2,7 +2,7 @@ import "./CatalogPage.css";
 import { useEffect, useState } from "react";
 import { Product, getProducts } from "../../api/Products";
 import { ProductFilters } from "../../components/ProductFilters/ProductFilters";
-import SortProducts from "../../components/UI-Kit/SortProducts/SortProducts";
+import SortProducts from "../../components/UI-Kit/UISortProducts/UISortProducts";
 import { useFilteredProducts } from "../../hooks/useFilteredProducts";
 import ProductCard from "../../components/ProductCard/ProductCard";
 
