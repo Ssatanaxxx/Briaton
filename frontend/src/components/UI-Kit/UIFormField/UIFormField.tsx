@@ -1,20 +1,21 @@
 import { FC, ReactNode } from "react";
-import "./FormField.css"
+import "./UIFormField.css"
 
-interface IFormFieldProps {
+interface IUIFormFieldProps {
     label: string;
     children: ReactNode;
     errorMessage?: string;
     htmlFor?: string;
 }
 
-export const FormField: FC<IFormFieldProps> = ({
+export const UIFormField: FC<IUIFormFieldProps> = ({
     children,
     label,
     errorMessage,
+    htmlFor,
 }) => {
     return (
-        <label className="form-field">
+        <label htmlFor={htmlFor} className="form-field">
             <span className="form-field__label">{label}</span>
             {children}
             {errorMessage && (

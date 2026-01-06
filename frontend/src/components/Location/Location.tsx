@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Location as LocationType, fetchCities } from "../../api/Location";
+import useCloseOnOutside from "../../hooks/useCloseOnOutside";
 import "./Location.css";
 import { IoIosArrowDown } from "react-icons/io";
-import { LuMapPinMinus} from "react-icons/lu";
+import { LuMapPinMinus } from "react-icons/lu";
+
 const Location = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentCity, setCurrentCity] = useState("Москва");
   const [cities, setCities] = useState<LocationType[]>([]);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const loadCities = async () => {
@@ -14,24 +17,28 @@ const Location = () => {
         const data = await fetchCities();
         setCities(data);
       } catch (error) {
-        null;
+        console.error("Error fetching cities:", error);
       }
     };
     loadCities();
   }, []);
 
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
+  useCloseOnOutside({ wrapperRef, isOpen, onClose: () => setIsOpen(false) });
 
+  const handleToggle = () => setIsOpen((prev) => !prev);
   const handleSelectCity = (cityName: string) => {
     setCurrentCity(cityName);
     setIsOpen(false);
   };
 
   return (
-    <div className="header__location location">
-      <LuMapPinMinus className="header__location-icon" width={24} height={24} aria-hidden="true" />
+    <div className="header__location location" ref={wrapperRef}>
+      <LuMapPinMinus
+        className="header__location-icon"
+        width={24}
+        height={24}
+        aria-hidden="true"
+      />
       <span className="location__text">Ваш город:</span>
       <div className="location__wrapper">
         <button

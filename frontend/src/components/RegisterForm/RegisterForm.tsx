@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../../api/queryClient";
 import { FormEventHandler, memo, useState } from "react";
 import Button from "../UI-Kit/AuthButton/AuthButton";
-import { FormField } from "../FormField/FormField";
+import { UIFormField } from "../UI-Kit/UIFormField/UIFormField";
 import {
   registerUser,
   RegisterSchema,
@@ -58,7 +58,7 @@ export const RegisterForm = memo(() => {
 
   return (
     <form className="register-form" onSubmit={handleSubmit}>
-      <FormField label="ФИО" errorMessage={errors.fullName} htmlFor="fullName">
+      <UIFormField label="ФИО" errorMessage={errors.fullName} htmlFor="fullName">
         <input
           id="fullName"
           name="fullName"
@@ -67,9 +67,9 @@ export const RegisterForm = memo(() => {
           onChange={handleChange}
           disabled={registerMutation.isPending}
         />
-      </FormField>
+      </UIFormField>
 
-      <FormField label="Телефон" errorMessage={errors.phone} htmlFor="phone">
+      <UIFormField label="Телефон" errorMessage={errors.phone} htmlFor="phone">
         <input
           id="phone"
           name="phone"
@@ -78,9 +78,9 @@ export const RegisterForm = memo(() => {
           onChange={handleChange}
           disabled={registerMutation.isPending}
         />
-      </FormField>
+      </UIFormField>
 
-      <FormField label="Адрес" errorMessage={errors.address} htmlFor="address">
+      <UIFormField label="Адрес" errorMessage={errors.address} htmlFor="address">
         <input
           id="address"
           name="address"
@@ -89,7 +89,7 @@ export const RegisterForm = memo(() => {
           onChange={handleChange}
           disabled={registerMutation.isPending}
         />
-      </FormField>
+      </UIFormField>
 
       <Button
         type="submit"

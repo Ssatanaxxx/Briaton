@@ -1,10 +1,8 @@
-import { memo, useEffect} from "react";
+import { memo, useRef } from "react";
 import "./BurgerMenu.css";
+import useCloseOnOutside from "../../hooks/useCloseOnOutside";
 
-type Props = {
-  isOpen: boolean;
-  onClose: () => void;
-};
+type Props = { isOpen: boolean; onClose: () => void };
 
 const menuItems = [
   "Люстры",
@@ -21,49 +19,25 @@ const menuItems = [
 ];
 
 const BurgerMenu = memo(({ isOpen, onClose }: Props) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const handleLinkClick = (e: React.MouseEvent) => {
-      e.preventDefault();
-      onClose();
-  };
-
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-
-    document.body.style.overflow = "hidden";
-    document.addEventListener("keydown", handleEscape);
-
-    return () => {
-      document.body.style.overflow = "";
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, [isOpen, onClose]);
+  useCloseOnOutside({ wrapperRef, isOpen, onClose });
 
   return (
     <div className="burger-container">
       {isOpen && (
         <div className="burger-backdrop" onClick={onClose} aria-hidden="true" />
       )}
-
       <div
         className={`burger-sidebar ${isOpen ? "open" : ""}`}
         aria-label="Основное бургерное меню"
-        id="burger-menu"
-        aria-hidden={!isOpen}
+        ref={wrapperRef}
       >
         <ul className="burger-nav">
-          <h2 className="header_burger-title">Каталог Товаров</h2>
+          <h2>Каталог Товаров</h2>
           {menuItems.map((item) => (
-            <li key={item} className="burger-nav__item">
-              {" "}
-              <a
-                onClick={handleLinkClick}
-                className="burger-nav__link"
-              >
+            <li key={item}>
+              <a onClick={onClose} className="burger-nav__link">
                 {item}
               </a>
             </li>
